@@ -1,4 +1,4 @@
-@extends('website.partials.layout')
+@extends('Website.partials.layout')
 @section('content')
     {{-- @livewireStyles
 
