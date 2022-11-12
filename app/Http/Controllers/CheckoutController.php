@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,9 @@ class CheckoutController extends Controller
             $cart_items = $result;
         }
 
-        return view('Website.customer.checkout', compact(['cart_items']));
+        $products = Product::all();
+
+        return view('Website.customer.checkout', compact(['cart_items', 'products']));
     }
 
     public function getAuthContent()
