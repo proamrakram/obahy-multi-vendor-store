@@ -114,10 +114,10 @@
                         <div class="products-your-order mb-3">
 
 
-                            @foreach ($cartitems as $cartitem)
+                            @foreach ($cart_items as $cart_item)
                                 <div class="your-order d-flex align-items-center mb-3">
 
-                                    <a href="{{ route('customer.single-product', $cartitem->id) }}">
+                                    <a href="{{ route('customer.single-product', $cart_item->id) }}">
                                         <img src="{{ asset('assets/images/img_you_order.png') }}" class='img-fluid rounded'
                                             alt="">
                                     </a>
@@ -125,13 +125,13 @@
                                     <div class="info-your-order pl-3">
 
                                         <h4 class='h6 mb-0'>
-                                            <a href="{{ route('customer.single-product', $cartitem->id) }}"
-                                                class="text-dark"> {{ $cartitem->name }}</a>
+                                            <a href="{{ route('customer.single-product', $cart_item->id) }}"
+                                                class="text-dark"> {{ $cart_item->name }}</a>
                                         </h4>
 
                                         <div class="stars">
                                             @foreach (range(1, 5) as $rate)
-                                                @if ($products->where('id', $cartitem->id)->first()->rates->pluck('rate_value')->avg() >= $rate)
+                                                @if ($products->where('id', $cart_item->id)->first()->rates->pluck('rate_value')->avg() >= $rate)
                                                     <i class="fas fa-star"></i>
                                                 @else
                                                     <i class="far fa-star"></i>
@@ -139,7 +139,7 @@
                                             @endforeach
                                         </div>
 
-                                        <b class="d-block"> {{ $cartitem->price }} $</b>
+                                        <b class="d-block"> {{ $cart_item->price }} $</b>
 
                                     </div>
 
@@ -150,7 +150,7 @@
                         </div>
                         <div class="cart-totals-inner mb-4">
                             <div class="text d-flex justify-content-between mb-2">
-                                <span> Sub Total ({{ $cartitems->count() }}) </span>
+                                <span> Sub Total ({{ $cart_items->count() }}) </span>
                                 <span> <b> {{ Cart::subtotal() }} $ </b> </span>
                             </div>
                             <div class="text d-flex justify-content-between">

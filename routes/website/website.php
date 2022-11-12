@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Website\CartController;
 use App\Http\Controllers\Website\CustomerController;
@@ -40,6 +41,7 @@ Route::group(['prefix' => 'customer', 'as' => 'customer.', 'middleware' => ['aut
         Route::post('/add-favorite', [UserFavoritesController::class, 'addFavorite'])->name('add.favorite');
 
 
+        Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
 
 
 
@@ -56,6 +58,5 @@ Route::group(['prefix' => 'customer', 'as' => 'customer.', 'middleware' => ['aut
         // Route::get('/', [ProductController::class, 'productList'])->name('products.list');
 
         /////////////////////////////////////////////
-        Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
     });
 });
