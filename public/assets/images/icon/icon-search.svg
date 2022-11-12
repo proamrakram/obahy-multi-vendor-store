@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="41.394" height="41.394" viewBox="0 0 41.394 41.394">
+  <g id="icon-search" transform="translate(-1 -1)">
+    <g id="search_funds_x2C__magnifying_glass_x2C__magnifier_x2C__loupe_1_" transform="translate(1 1)">
+      <g id="analysis_2_">
+        <g id="Group_18059" data-name="Group 18059">
+          <g id="Group_18058" data-name="Group 18058">
+            <g id="Group_18056" data-name="Group 18056" transform="translate(27.409 27.408)">
+              <path id="Path_11770" data-name="Path 11770" d="M24.62,24.62a2.545,2.545,0,0,1,.563-.413l-3.14-3.142a.69.69,0,0,0-.976.977L24.2,25.176A2.8,2.8,0,0,1,24.62,24.62Z" transform="translate(-20.865 -20.864)"/>
+              <path id="Path_11771" data-name="Path 11771" d="M30.779,34.208a3.432,3.432,0,0,1-2.439-1.01L23.51,28.369a3.451,3.451,0,0,1,0-4.879,3.641,3.641,0,0,1,4.878,0l4.829,4.829a3.449,3.449,0,0,1-2.438,5.889ZM25.95,23.887a2.051,2.051,0,0,0-1.464,3.506l4.829,4.829a2.121,2.121,0,0,0,2.927,0,2.07,2.07,0,0,0,0-2.928l-4.829-4.829A2.076,2.076,0,0,0,25.95,23.887Z" transform="translate(-20.244 -20.222)"/>
+            </g>
+            <g id="Group_18057" data-name="Group 18057" transform="translate(15.868 19.476)">
+              <path id="Path_11772" data-name="Path 11772" d="M13.19,25.236a.69.69,0,1,1,0-1.38A11.658,11.658,0,0,0,24.412,15.6a.69.69,0,0,1,1.32.4A13.032,13.032,0,0,1,13.19,25.236Z" transform="translate(-12.5 -15.115)"/>
+            </g>
+            <path id="Path_11773" data-name="Path 11773" d="M17.558,34.115A16.558,16.558,0,1,1,34.115,17.558,16.576,16.576,0,0,1,17.558,34.115Zm0-31.735A15.178,15.178,0,1,0,32.735,17.558,15.2,15.2,0,0,0,17.558,2.38Z" transform="translate(-1 -1)"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <circle id="Ellipse_34" data-name="Ellipse 34" cx="0.69" cy="0.69" r="0.69" transform="translate(29.286 16.868)"/>
+  </g>
+</svg>

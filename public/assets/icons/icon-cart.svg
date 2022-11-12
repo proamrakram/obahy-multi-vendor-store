@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="35" viewBox="0 0 36 35">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_240" data-name="Rectangle 240" width="36" height="35" transform="translate(0 0.446)" fill="#0f0f0f"/>
+    </clipPath>
+  </defs>
+  <g id="icon-cart" transform="translate(0 -0.446)" clip-path="url(#clip-path)">
+    <g id="shopping_cart-24px" transform="translate(0 0)">
+      <path id="Path_251" data-name="Path 251" d="M0,0H35.54V35.54H0Z" fill="none"/>
+      <path id="Path_252" data-name="Path 252" d="M23.213,19.622A2.948,2.948,0,0,0,25.8,18.1l5.3-9.61a1.475,1.475,0,0,0-1.288-2.192H7.9L6.509,3.333H1.667V6.295H4.628L9.959,17.534l-2,3.613a2.967,2.967,0,0,0,2.591,4.4h17.77V22.584H10.552l1.629-2.962ZM9.308,9.257H27.3l-4.087,7.4h-10.4Zm1.244,17.77a2.962,2.962,0,1,0,2.962,2.962A2.958,2.958,0,0,0,10.552,27.026Zm14.808,0a2.962,2.962,0,1,0,2.962,2.962A2.958,2.958,0,0,0,25.36,27.026Z" transform="translate(-0.186 -0.372)" fill="#0f0f0f"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60.813" height="32.9" viewBox="0 0 60.813 32.9">
+  <g id="icon-truck" transform="translate(-0.5 -8.5)">
+    <path id="Path_155" data-name="Path 155" d="M39.775,9V36.115H20.515a4.825,4.825,0,0,0-9.63,0H6V9Z" transform="translate(4.969)" fill="none" stroke="#babebc" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <path id="Path_156" data-name="Path 156" d="M39.01,22.57v9.57H35.8a4.825,4.825,0,0,0-9.63,0H22.94V13h6.719Z" transform="translate(21.803 3.975)" fill="none" stroke="#babebc" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <path id="Path_157" data-name="Path 157" d="M39.01,17.8v9.57H35.8a4.825,4.825,0,0,0-9.63,0H22.94V17.8Z" transform="translate(21.803 8.745)" fill="none" stroke="#babebc" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <ellipse id="Ellipse_26" data-name="Ellipse 26" cx="4.825" cy="4.785" rx="4.825" ry="4.785" transform="translate(15.834 31.33)" fill="none" stroke="#babebc" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <ellipse id="Ellipse_27" data-name="Ellipse 27" cx="4.825" cy="4.785" rx="4.825" ry="4.785" transform="translate(47.953 31.33)" fill="none" stroke="#babebc" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <line id="Line_2" data-name="Line 2" x2="5.204" transform="translate(1 12.19)" fill="none" stroke="#babebc" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <line id="Line_3" data-name="Line 3" x2="5.204" transform="translate(1 18.57)" fill="none" stroke="#babebc" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <line id="Line_4" data-name="Line 4" x2="5.204" transform="translate(1 24.95)" fill="none" stroke="#babebc" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+  </g>
+</svg>

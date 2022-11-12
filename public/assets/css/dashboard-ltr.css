@@ -1,0 +1,72 @@
+.img-border-right, .card-notification .features {
+    border-left: 3px solid #D51C53;
+    border-right: 0;
+    padding-right: 0;
+    padding-left: 20px;
+}
+
+.tools-options{
+    padding: 0 0 0 10px;
+}
+
+[class^=uil-]:before, [class*=" uil-"]:before,
+.uil-angle-right-b:before,
+.uil-angle-left-b:before{
+    transform: rotate(180deg);
+}
+
+.filter-search .heading h4{
+    -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 11%, 87% 100%, 100% 98%, 36% 113%, 0 100%, 0% 11%);
+    clip-path: polygon(0% 2%, 100% -1, 101% 100%, 60% 81%, 100% 99%, 11% 99%, 0 12%, 0% 4%);
+}
+
+.form-check-fill .form-check {
+    padding-left: 16px;
+    padding-right: 3px;
+}
+
+.icon-dots{
+    right: -40px;
+    left: auto;
+}
+
+.heading-with-shape:after{
+    top: -26px;
+    border-color: #e22c2c00 #000000 #00000005 #7e060600;
+    transform: rotate(45deg);
+    left: -25px;
+    right: auto
+}
+
+.page-wrapper .page-content .layout-specing .border-start {
+    border-left: 0 !important;
+    border-right: 1px solid #dee2e6!important;
+}
+
+.form-select.form-control-sm {
+    padding: 5px 40px 5px 9px;
+}
+
+.body-clients{
+    padding-left: 20px;
+}
+
+.form-check .form-check-input{
+    float: right;
+}
+
+.file-uploade label{
+    left: auto;
+}
+
+.page-wrapper .page-content .top-header .header-bar .search-bar .menu-search .searchform:after{
+    background: #000000;
+    color: #FFF;
+    width: 40px;
+    text-align: center;
+    height: 36px;
+    top: 0;
+    line-height: 36px;
+    left: auto !important;
+    right: 4px;
+}

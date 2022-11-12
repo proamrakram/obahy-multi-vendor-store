@@ -1,0 +1,472 @@
+.size-top-part{    width: 90%;}
+.size-top-part,
+.open-sidebar{
+    display: none;
+}
+
+.desc-tab p:not(:first-child) {display: none;}
+
+.box-table{margin-bottom: 0 !important;}
+
+.size-top-part {margin-top: 100px;}
+
+
+.desc-tab p:first-child:after{
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+    position: absolute;
+    right: 0;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    text-align: center;
+    line-height: 25px;
+    top: 2px;
+}
+
+@media(max-width: 992px) {
+    
+    .size-top-part {margin-top: 0;}
+    
+    .right-images-sizes{display: none !important;}
+
+    .size-top-part{
+        display: block;
+        width: 70%;
+        margin: auto;
+        min-height: 600px;
+    }
+
+    .box-table{margin-bottom: 0 !important;}
+
+    .form-sizeing.card-body {
+        padding-top: 5px;
+        padding-bottom: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }    
+
+    .box-table .p-3{padding: 3px !important;font-size: 13px;}
+
+    .box-table .p-3.w-50{line-height: 25px;}
+
+    .form-sizeing input{    padding: 2px;   }    
+    
+    #accordion {
+        padding-top: 10px !important;
+    }
+
+    .mobile-accordion .nav {
+        position: relative;
+    }
+
+    .mobile-accordion .nav:after {
+        content: "\f107";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 600;
+        position: absolute;
+        right: 0;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        border: 1px solid #000;
+        text-align: center;
+        line-height: 25px;
+        top: 7px;
+    }
+
+    .size-details.product-tabs .container > .d-flex.justify-content-between{
+        display: block !important;
+        margin-bottom: 20px;
+    }    
+
+    .size-details.product-tabs .container > .d-flex.justify-content-between,
+    .product-tabs .nav.tabs-ul{margin-bottom: 0 !important;}
+
+    .btns{margin: 5px 0 ;}
+
+    .mobile-accordion-content {font-size: 13px}
+
+    .mobile-accordion-content h3.h5 {margin-bottom: 5px !important;}
+
+    .desc-tab p{position: relative;}
+
+
+}
+
+@media(max-width: 776px) {
+    .size-5-hip-rota  .desc-manikin-txt, 
+    .chest-between-width  .desc-manikin-txt, 
+    .inner-length-from-top-thigh .desc-manikin-txt, 
+    .knee-height-length .desc-manikin-txt {
+        font-size: 8px;
+    }
+
+    /* Header */
+    .header.header .header-logo img{ width: 80px; }
+
+    .header-tools button{width: 30px !important;height: 30px!important;font-size: 15px!important;}
+
+    .header-tools .btn-cart  img { width: 25px;  }
+
+    .header-tools .btn-lang   img { width: 20px; margin-top: 5px;}
+
+    .header-tools .btn-cart{margin-right: -5px;margin-left: -5px;}
+
+    .header-tools .btn-lang button{top: -2px}
+
+    .nav-section .navbar-nav .try-link{margin: 0 !important;margin-top: 10px !important;}
+
+    .form-data input{ padding: 13px 0px 12px 17px; }
+
+    .header-tools .btn-cart .number {
+        top: 0;
+        font-size: 12px;
+        line-height: 16px;
+        width: 16px;
+        height: 16px;                
+    }
+
+    /* Home Page */
+
+    .intro-sm-img h5{font-size: 16px;}
+
+    .intro-sm-img .text a.icon-hero{height: 30px;width: 30px;font-size: 11px;line-height: 30px}
+
+    .hero-section .hero-section-right{height: auto;margin-left: 5px;}
+
+    .hero-section .hero-section-right .intro-sm-img:first-child{    margin-left: -5px;}
+    .hero-section .hero-section-right .intro-sm-img:last-child{    margin-left: 5px;}
+
+    .intro-sm-img .text{    height: 190px !important;}
+
+    .special-section{text-align: center;}
+
+    .product-cat img{
+        height: 300px;
+        width: 100%;
+    }
+
+    .product-cat .btn {
+        padding: 6px 10px;
+    }
+
+    /* Cart */
+    .step-btn{font-size: 13px;}
+
+    .step-btn i {font-size: 14px; padding-right: 3px  !important; }
+
+    .basic-information-fields{border-right: 0 !important;}
+
+    .form-create-new-store .form,
+    .favorite  h3.bg-gray,
+    .heading-page-profile h3.bg-gray,
+    .steps-content h3.bg-gray{padding: 12px !important;}
+
+    /* Category Page */
+
+    .heading-page{
+        background-image: none !important;    
+        padding-top: 30px !important;
+        padding-bottom: 30px!important;
+        min-height: auto;
+    }
+
+    .breadcrumb{padding: 0;}
+
+    /* Single Products */
+
+    .comment-btn .btn,
+    .data-btn .btn{padding: 6px 12px;}
+
+    .comment-description {padding: 10px !important;}
+    
+    
+    .row-mobile,
+    .related-products .row,
+    .latest-fabrics .row,
+    .newly-arrived .row,
+    .new-design .row,
+    .result-search .row,
+    .filter-search .content .row,
+    .form-create-new-store .row,
+    .main-category .col-md-9 .row,
+    .steps-btns .row{margin-right: -5px;margin-left: -5px;}
+
+    .row-mobile .col-6,
+    .related-products .col-6,
+    .latest-fabrics .col-6,
+    .newly-arrived .col-6,
+    .new-design .col-6,
+    .result-search .col-6,
+    .filter-search .content .col-6,
+    .form-create-new-store .col-6,
+    .form-create-new-store .col-12,
+    .main-category .col-md-9 .col-6,
+    .steps-btns .row .col{padding-right: 5px;padding-left: 5px;}
+
+    .form-checkout{border-right: 0 !important;}
+
+    .tabs-link-btn,
+    .creativity-content{margin-top: 40px;}
+
+    .contact-us{margin: 70px 0 ;}
+
+    .slider-style-1 .navSlider{margin-top: -15px;}
+
+    .slider-style-1 .navSlider button{
+        width: 30px;
+        height: 30px;
+    }
+
+    .slider-style-1 .navSlider button span{    top: -11px;}
+
+
+    .page-create-store .box,
+    .real-value,
+    .right-obahy-home-section{margin-top: 20px;}
+
+    .heading-page-profile h3.bg-gray,
+    .steps-content h3.bg-gray,
+    .product-content,
+    .filter-search .content .col-6{margin-bottom: 10px !important;}
+
+    
+    .product-rate .row.mb-5{margin-bottom: 20px !important;}
+
+    .comment-description h4 {margin-bottom: 0 !important;}
+
+    .page-create-store .box{text-align: center;}
+
+    /* Order */
+
+    .products-ordering .step-content-products .appearance-expert,
+    .favorite .step-content-products .category,
+    .products-ordering .step-content-products .status,
+    .products-ordering .step-content-products .status,
+    .favorite .step-content-products .cost,
+    .products-ordering .step-content-products .cost,
+    .products-ordering .step-content-products .address,
+    .products-ordering .step-content-products .quantity{
+        display: inline-block;
+        width: 50%;
+        text-align: center;
+        border: 1px solid #EEE;
+        margin-right: -4px;
+        padding: 3px;
+    }
+
+    
+    .products-ordering .step-content-products .appearance-expert,
+    .products-ordering .step-content-products .status,
+    .products-ordering .step-content-products .cost {
+        border-bottom: 0;
+    }
+
+    .required-service.products-ordering .step-content-products .address {
+        width: 100%;
+    }
+
+    .products-ordering .step-content-products .appearance-expert span:first-child,
+    .favorite .step-content-products .category span:first-child,
+    .products-ordering .step-content-products .status span:first-child,
+    .favorite .step-content-products .cost span:first-child,
+    .products-ordering .step-content-products .cost span:first-child,
+    .products-ordering .step-content-products .address span:first-child,
+    .products-ordering .step-content-products .quantity span:first-child {
+        margin-bottom: -5px;
+    }
+    
+    .products-ordering .step-content-products .tools-setting ,
+    .favorite .step-content-products .add-cart ,
+    .products-ordering .step-content-products .refund {
+        width: 100%;
+        margin-top: 12px;
+        text-align: center;
+    }
+
+    .contact-now{
+        width: 36px;
+        height: 36px;
+        left: 20px;
+        bottom: 20px;
+        line-height: 36px;
+        z-index: 999999;
+    }
+
+    .small-img-product{height: auto;text-align: center;}
+
+    .product-details-images .small-img-product img{
+        width: 19%
+    }
+
+    .product-details-images .big-img-product img{
+        height: auto;
+        margin-bottom: 35px;
+    }
+
+    /* .product-tabs .d-flex , */
+    .rate-comment .text-muted,
+    .open-sidebar,
+    .favorite .step-content-products .add-cart a,
+    .products-ordering .step-content-products .refund a{
+        display: block !important;
+    }
+
+    .heading-page .col-md-6.text-right,
+    .open-sidebar-box{
+        display: none;
+    }
+
+    /* Global */
+
+    .btn-outline-primary, 
+    .btn-primary {
+        padding: 10px 15px;
+    }
+
+    .form-create-new-store h2,
+    .heading-page-profile h2,
+    .step-content-title,
+    .related-products h2,
+    .heading-section h3,
+    .heading-page h1{font-size: 25px !important;}
+
+    .social-links h4,
+    .footer h3,
+    .product-style-1 .product-content h3,
+    .heading h3 {font-size: 20px;}
+
+    .favorite  h3.bg-gray,
+    .heading-page-profile h3.bg-gray,
+    .steps-content h3.bg-gray{font-size: 18px;}
+
+    .comment-description h4,
+    .product-tabs .nav-pills .nav-link{
+        font-size: 16px;
+    }
+
+    .size-details.product-tabs p, 
+    .product-content p,
+    .form-create-new-store .form input,
+    .comment-description span,
+    .comment-description p,
+    .rate-comment .text-muted,
+    .star .gold,
+    .star .star,
+    .comment-btn .btn,
+    .footer ul li a,
+    .down-footer p,
+    .heading-page p {font-size: 14px;}
+
+    .size-details.product-tabs p {margin-bottom: 5px;}
+
+
+    .product-style-1 .product-image .add-to-wishlist, .product-style-1 .product-image .discount{
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        font-size: 12px;
+    }
+
+    .social-links .btn,
+    .product-content .btn,
+    .pagination .page-link{
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+
+    /* Size Pages */
+
+    .product-tabs .d-flex .btns .btn {
+        padding: 5px 4px;
+        font-size: 13px;
+    }
+
+    .fa-exclamation{
+        width: 17px;
+        height: 17px;
+        line-height: 17px;
+        margin: 0 2px;
+        font-size: 10px;
+    }
+
+    #accordion .card { margin-bottom: 4px; }
+
+    #accordion .card-header{padding: 0;}
+
+    #accordion .card-header button{
+        padding: 0px 15px;
+    }
+
+    .loading-mobile-input{
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 60px;
+        background: #eeeeee4f;
+        transition: all .2s;     
+    }
+
+
+    .upper-chest-rotation,
+    .neck-rotation,
+    .lower-chest-rotation,
+    .mid-chest-rotation{text-align: right;}
+
+    .select2-container .select2-selection--single{
+        height: 30px;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__rendered{
+        line-height: 30px !important;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__arrow{
+        top: 2px;
+    }
+
+    #accordion .card-header button i{
+        width: 20px;
+        height: 20px;
+        font-size: 11px;
+        top: 2px;
+        line-height: 20px;
+        position: relative;        
+    }
+
+    .size-top-part{margin: inherit;}
+}
+
+@media(max-width: 500px) {
+
+    .size-top-part{min-height: 540px;}
+
+    .size-5-total-height .desc-manikin-txt,
+    .size-4-wrist-rotation .desc-manikin-txt,
+    .size-5-wrist-rotation .desc-manikin-txt,
+    .size-5-paint-rotation .desc-manikin-txt,
+    .Bottom-view .desc-manikin-txt,
+    .size-3-side-pocket-height   .desc-manikin-txt,
+    .size-3-chest-pocket   .desc-manikin-txt,
+    .Shoulder-joint-rotation   .desc-manikin-txt,
+    .wrist-rotation  .desc-manikin-txt,
+    .size-2-mid-sleeve-rotation  .desc-manikin-txt,
+    .total-length-side  .desc-manikin-txt,
+    .size-wrist-rotation  .desc-manikin-txt,
+    .size-wrist-rotation  .desc-manikin-txt,
+    .size-Shoulder-joint-rotation  .desc-manikin-txt,
+    .upper-hip-rotation .desc-manikin-txt,
+    .upper-hip-rotation .desc-manikin-txt{
+        font-size: 11px;
+    }
+
+    .size-5-hip-rotation .desc-manikin-txt,
+    .knee-height-length .desc-manikin-txt,
+    .show-mabe-two-chest-points .desc-manikin-txt{
+        font-size: 9px;
+    }
+}
