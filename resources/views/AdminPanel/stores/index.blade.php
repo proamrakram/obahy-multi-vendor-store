@@ -16,10 +16,10 @@
             </div>
 
 
-            
+
             <div class="p-4">
-                <div id="kt_datatable_example_buttons" class="d-none"></div>                        
-                
+                <div id="kt_datatable_example_buttons" class="d-none"></div>
+
                   <div class="btns-optons-table mb-3 btns-datatables-export"  id="kt_datatable_example_export_menu">
                     <button class="btn btn-dark"  data-kt-export="print">Print</button>
                     <button class="btn btn-dark"  data-kt-export="pdf">pdf</button>
@@ -68,7 +68,7 @@
                                    {{$store->phone_number}}
                                 </td>
 
-                                
+
                                 <td class="text-center p-2">
                                    {{$store->subscription_start_date}}
                                 </td>
@@ -77,22 +77,32 @@
                                    {{$store->subscription_end_date}}
                                 </td>
 
-                                
+
                                 <td class="text-center p-2">
                                 @if($store->store_status =='active')<span class="text-success">@lang('adminPanel.active') @else <span class="text-danger">@lang('adminPanel.not-active') @endif </span>
                                 </td>
 
-                                <td class="text-center p-2">
+                                {{-- <td class="text-center p-2">
                                     {{$store->package->package_price}} {{$store->package->currency->getName()}}
+                                </td> --}}
+
+                                <td class="text-center p-2">
+                                    @if ($store->active_store_package)
+                                        {{ $store->active_store_package->storePackage->package_price }}
+                                        {{ $store->active_store_package->storePackage->currency->currency_name }}
+                                    @else
+                                        Check It
+                                    @endif
                                 </td>
+
 
 
                                 <td class="text-end p-3">
                                     <div class="tools-options d-flex justify-content-center">
                                     <div class="form-check form-switch p-0 pt-1">
-                                            
+
                                             <input class="form-check-input" type="checkbox" onclick="window.location='{{ route("admin.stores.changeStatus",["id"=>$store->id]) }}'" id="flexSwitchCheckChecked" @if($store->store_status == 'active') checked="" @endif>
-                                            
+
                                         </div>
                                         @if(auth()->user()->can('stores-edit'))
                                         <a href="{{route('admin.stores.edit',['id'=>$store->id])}}"> <i class="uil uil-edit"></i> </a>
@@ -126,7 +136,7 @@
 <script src="{{asset('assets/js/pdfmake.js')}}"></script>
 <script src="{{asset('assets/js/vfs_fonts.js')}}"></script>
 <script>
-   
+
     "use strict";
 
 // Class definition
@@ -178,7 +188,7 @@ var KTDatatablesExample = function () {
                 {
                     extend: 'pdfHtml5',
                     title: documentTitle,
-                    
+
                 }
             ]
         }).container().appendTo($('#kt_datatable_example_buttons'));
@@ -226,7 +236,7 @@ var KTDatatablesExample = function () {
 // On document ready
 KTUtil.onDOMContentLoaded(function () {
     KTDatatablesExample.init();
-});    
+});
 
  </script>
 

@@ -28,6 +28,8 @@ Auth::routes();
 
 Route::get('/search', [App\Http\Controllers\SearchController::class, 'search'])->name('search');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
 
     Route::get('/home', [App\Http\Controllers\AdminPanel\HomeController::class, 'index'])->name('admin.home');
@@ -226,12 +228,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
         Route::post('/products/active_deactive_product', [App\Http\Controllers\AdminPanel\ProductController::class, 'active_deactive_product'])->name('admin.products.update.active_deactive_product')->middleware('permission:admin-products-show');
     });
 
- 
-Route::get('/abandoned-carts', [App\Http\Controllers\AdminPanel\AbandonedCartsController::class, 'index'])->name('admin.abandoned-carts.index')->middleware('permission:admin-abandoned-carts-show');
-Route::get('/abandoned-carts/settings', [App\Http\Controllers\AdminPanel\AbandonedCartsController::class, 'settings'])->name('admin.abandoned-carts.settings')->middleware('permission:admin-abandoned-carts-settings-edit');
-Route::post('/abandoned-carts/general/settings', [App\Http\Controllers\AdminPanel\AbandonedCartsController::class, 'general_settings_update'])->name('admin.abandoned-carts.general.settings.update')->middleware('permission:admin-abandoned-carts-settings-edit');
-Route::post('/abandoned-carts/automail/settings', [App\Http\Controllers\AdminPanel\AbandonedCartsController::class, 'automail_settings_update'])->name('admin.abandoned-carts.automail.settings.update')->middleware('permission:admin-abandoned-carts-settings-edit');
-Route::post('/abandoned-carts/remindermail/settings', [App\Http\Controllers\AdminPanel\AbandonedCartsController::class, 'remindermail_settings_update'])->name('admin.abandoned-carts.remindermail.settings.update')->middleware('permission:admin-abandoned-carts-settings-edit');
+
+    Route::get('/abandoned-carts', [App\Http\Controllers\AdminPanel\AbandonedCartsController::class, 'index'])->name('admin.abandoned-carts.index')->middleware('permission:admin-abandoned-carts-show');
+    Route::get('/abandoned-carts/settings', [App\Http\Controllers\AdminPanel\AbandonedCartsController::class, 'settings'])->name('admin.abandoned-carts.settings')->middleware('permission:admin-abandoned-carts-settings-edit');
+    Route::post('/abandoned-carts/general/settings', [App\Http\Controllers\AdminPanel\AbandonedCartsController::class, 'general_settings_update'])->name('admin.abandoned-carts.general.settings.update')->middleware('permission:admin-abandoned-carts-settings-edit');
+    Route::post('/abandoned-carts/automail/settings', [App\Http\Controllers\AdminPanel\AbandonedCartsController::class, 'automail_settings_update'])->name('admin.abandoned-carts.automail.settings.update')->middleware('permission:admin-abandoned-carts-settings-edit');
+    Route::post('/abandoned-carts/remindermail/settings', [App\Http\Controllers\AdminPanel\AbandonedCartsController::class, 'remindermail_settings_update'])->name('admin.abandoned-carts.remindermail.settings.update')->middleware('permission:admin-abandoned-carts-settings-edit');
 
 
     /////////////////////////////////////////////

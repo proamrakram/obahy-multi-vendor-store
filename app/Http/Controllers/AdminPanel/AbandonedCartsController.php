@@ -25,16 +25,16 @@ class AbandonedCartsController extends Controller
     return view('AdminPanel.abandoned_carts');
   }
 
-  
+
   public function settings()
   {
-    
+
     $setting = AbandonedCartSettings::select('key', 'value')->pluck('value', 'key')->toArray();
     return view('AdminPanel.abandoned_carts_settings')->with('setting', $setting);
   }
 
 
-  
+
 
   public function  general_settings_update(Request $request)
   {
@@ -50,9 +50,9 @@ class AbandonedCartsController extends Controller
 
     return $this->update($request);
   }
- 
 
-  
+
+
 
   public function  automail_settings_update(Request $request)
   {
@@ -65,9 +65,9 @@ class AbandonedCartsController extends Controller
 
     return $this->update($request);
   }
- 
 
-  
+
+
 
   public function  remindermail_settings_update(Request $request)
   {
@@ -80,8 +80,8 @@ class AbandonedCartsController extends Controller
 
     return $this->update($request);
   }
- 
-  
+
+
   public function update($request)
   {
     if(!$request->has('activate_abandoned_carts')){
@@ -95,7 +95,7 @@ class AbandonedCartsController extends Controller
         {
 
           if($key != "_token"){
-          
+
           AbandonedCartSettings::updateOrCreate([
             'key'=>$key
           ],[
@@ -108,6 +108,6 @@ class AbandonedCartsController extends Controller
     $this->massage('success', 'The data has been modified successfully','تم تعديل البيانات بنجاح');
     return redirect()->back();
   }
-  
-  
+
+
 }
