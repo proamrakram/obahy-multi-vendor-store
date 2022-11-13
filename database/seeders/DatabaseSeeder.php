@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             CitySeeder::class,
             CurrencySeeder::class,
             UserSeeder::class,
-            PermissionSeeder::class,
+            // PermissionSeeder::class,
             PackageItemSeeder::class,
             PaymentTypeSeeder::class,
             StorePackageSeeder::class,
