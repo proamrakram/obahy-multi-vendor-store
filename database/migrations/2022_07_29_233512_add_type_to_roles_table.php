@@ -13,10 +13,13 @@ class AddTypeToRolesTable extends Migration
      */
     public function up()
     {
-        Schema::table('roles', function (Blueprint $table) {
-            //
-            $table->string('type')->default('admin');
-        });
+        if (!Schema::hasTable('roles')) {
+
+            Schema::table('roles', function (Blueprint $table) {
+                //
+                $table->string('type')->default('admin');
+            });
+        }
     }
 
     /**
