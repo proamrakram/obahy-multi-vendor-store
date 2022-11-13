@@ -13,11 +13,14 @@ class AddTypeToPermissionsTable extends Migration
      */
     public function up()
     {
-        Schema::table('permissions', function (Blueprint $table) {
-            //
-            $table->string('parent_id')->nullable();
-            $table->string('type')->default('admin');
-        });
+        if (!Schema::hasTable('permissions')) {
+
+            Schema::table('permissions', function (Blueprint $table) {
+                //
+                $table->string('parent_id')->nullable();
+                $table->string('type')->default('admin');
+            });
+        }
     }
 
     /**
