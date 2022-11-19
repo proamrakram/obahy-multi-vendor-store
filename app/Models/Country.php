@@ -32,7 +32,6 @@ class Country extends Model
         return $this->hasMany('App\Models\City');
     }
 
-
     public function setCountryFlagAttribute($image)
     {
         if(gettype($image) != 'string') {
