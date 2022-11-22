@@ -67,7 +67,7 @@ class StoreDetails extends Component
             ->where('product_status', 'active')
             ->where('product_type', $this->product_type)
             ->orderBy('id', $this->time)
-            ->where('store_id', $store->id)->paginate(9);
+            ->where('store_id', $store->id)->paginate(12);
 
         $products_services = Product::language()->where('is_delete', '0')
             ->where('product_status', 'active')

@@ -40,11 +40,16 @@ Route::group(['prefix' => 'customer', 'as' => 'customer.', 'middleware' => ['aut
         /////////////////////////////////////////////
         Route::post('/add-favorite', [UserFavoritesController::class, 'addFavorite'])->name('add.favorite');
 
-
         Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
 
-
-
+        Route::get('store-your-designer-details', [CustomerController::class, 'storeYourDesignerDetails'])->name('store.your.designer.details');
+        Route::get('size-details-1', [CustomerController::class, 'sizeDe1'])->name('size.details.1');
+        Route::get('size-details-2', [CustomerController::class, 'sizeDe2'])->name('size.details.2');
+        Route::get('size-details-3', [CustomerController::class, 'sizeDe3'])->name('size.details.3');
+        Route::get('size-details-4', [CustomerController::class, 'sizeDe4'])->name('size.details.4');
+        Route::get('size-details-5', [CustomerController::class, 'sizeDe5'])->name('size.details.5');
+        Route::get('size-details-6', [CustomerController::class, 'sizeDe6'])->name('size.details.6');
+        Route::get('size-details-7', [CustomerController::class, 'sizeDe7'])->name('size.details.7');
 
 
 

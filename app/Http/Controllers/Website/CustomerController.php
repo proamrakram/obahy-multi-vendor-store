@@ -207,4 +207,44 @@ class CustomerController extends Controller
 
         return true;
     }
+
+    public function storeYourDesignerDetails()
+    {
+        return view('Website.store-your-designers-details');
+    }
+
+    public function sizeDe1()
+    {
+        return view('Website.size_details');
+    }
+
+    public function sizeDe2()
+    {
+        return view('Website.size_details_1');
+    }
+
+    public function sizeDe3()
+    {
+        return view('Website.size_details_2');
+    }
+
+    public function sizeDe4()
+    {
+        return view('Website.size_details_3');
+    }
+
+    public function sizeDe5()
+    {
+        return view('Website.size_details_4');
+    }
+
+    public function sizeDe6()
+    {
+        return view('Website.size_details_5');
+    }
+
+    public function sizeDe7()
+    {
+        return view('Website.size_details_6');
+    }
 }
