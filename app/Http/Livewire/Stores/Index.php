@@ -154,6 +154,8 @@ class Index extends Component
             $this->resetPage();
         }
 
+
+
         return view('livewire.stores.index', [
             'stores' => $stores->paginate(9),
             'store_type_title' => $this->store_type_title,
