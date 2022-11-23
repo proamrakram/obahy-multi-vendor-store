@@ -11,11 +11,11 @@ class AddCoulmnsToWebsiteSettingsTable extends Migration
      *
      * @return void
      */
-    
+
     public function up()
     {
         Schema::table('website_settings', function (Blueprint $table) {
-            
+
             $table->integer('default_products_num');
             $table->integer('default_services_num');
             $table->integer('default_orders_num');

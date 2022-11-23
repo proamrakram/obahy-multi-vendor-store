@@ -205,6 +205,7 @@
                         </div>
                         <div class="available-store mt-3 mb-1">
                             <h3>${{ $product->product_price }}</h3>
+
                             @if ($product->in_stock)
                                 <span class='text-green'>Available</span> <span> In Store</span>
                             @else

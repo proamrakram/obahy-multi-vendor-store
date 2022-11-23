@@ -82,6 +82,21 @@ class CustomerController extends Controller
             ->whereIn('product_type', ['ready_made', 'custom_made', 'service', 'template'])
             ->where('store_id', $store->id);
 
+
+        if ($product->product_type == 'custom_made') {
+            return view('Website.products.custom-product-details', [
+                'product' => $product,
+                'custom' => $product->custom,
+                'store' => $store,
+                'store_type' => $store_type,
+                'store_admin' => $store_admin,
+                'related_products' => $related_products,
+                'store_type_slug' => $store_type_slug,
+                'store_name_slug' => $store_name_slug,
+                'product_id' => $product_id
+            ]);
+        }
+
         return view('Website.stores.product-deatils', [
             'product' => $product,
             'store' => $store,
@@ -152,10 +167,10 @@ class CustomerController extends Controller
                 'password' => Hash::make($request->password),
             ]);
         }
+
         $store_type = StoreType::where('id', $request->entity_type)->first();
 
         if ($user) {
-
 
             $store = Store::create([
                 'store_name_ar' => $request->store_title,
@@ -203,6 +218,10 @@ class CustomerController extends Controller
                     'is_delete' => '0'
                 ]);
             }
+
+            $user->update([
+                'store_id' => $store->id
+            ]);
         }
 
         return true;

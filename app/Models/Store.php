@@ -41,10 +41,11 @@ class Store extends Model
         'registration_number_in_trusted',
         'id_number',
     ];
+
     protected static function booted()
     {
         static::creating(function(Store $item) {
-            $item->slug = $item->store_name_en ."_".Str::uuid();
+            $item->slug = $item->store_name_en . "_". Str::uuid();
         });
     }
 

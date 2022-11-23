@@ -4,9 +4,9 @@
 
     <div class="heading-page mt-2">
         <div class="container">
-            <h1 class="h2"> Your Own Designer </h1>
-            <img src="img/icons/icon-brown-like.svg" class="icon-like" alt="">
-            <img src="img/icons/icon-love-favorite.svg" class="icon-love-favorite" alt="">
+            <h1 class="h2"> {{ $store_type->store_type_name }}: {{ $store_admin->name }} </h1>
+            <img src="{{ asset('img/icons/icon-brown-like.svg') }}" class="icon-like" alt="">
+            <img src="{{ asset('img/icons/icon-love-favorite.svg') }}" class="icon-love-favorite" alt="">
         </div>
     </div>
 
@@ -15,19 +15,25 @@
         <div class="container mt-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb  mb-0">
-                    <li class="breadcrumb-item"><a href="#">Categories</a></li>
-                    <li class="breadcrumb-item"><a href="#">your own designer</a></li>
-                    <li class="breadcrumb-item active"><a href="#"> Design Request</a></li>
+                    <li class="breadcrumb-item"><a
+                            href="{{ route('customer.store-type-category', $store_type->slug) }}">{{ $store_type->store_type_name }}</a>
+                    </li>
+                    <li class="breadcrumb-item"><a
+                            href="{{ route('customer.store-details', [$store_type_slug, $store_name_slug]) }}">{{ $store->store_name }}</a>
+                    </li>
+                    <li class="breadcrumb-item active"><a
+                            href="{{ route('customer.store-product-details', [$store_type_slug, $store_name_slug, $product->id]) }}">{{ $product->product_name }}</a>
+                    </li>
                 </ol>
             </nav>
 
-            <h2 class='h4 mb-5'> Your Designer </h2>
+            <h2 class='h4 mb-5'> {{ $store_type->store_type_name }}: {{ $store_admin->name }} </h2>
         </div>
     </nav>
 
 
     <a href="#" class='contact-now'>
-        <img src="img/icons/icon-msg.svg" alt="">
+        <img src="{{ asset('img/icons/icon-msg.svg') }}" alt="">
     </a>
 
     <div class="singe-product mt-3 pb-5">
@@ -39,22 +45,18 @@
                         <div class="row row-sm">
                             <div class="col-md-2 sm-col">
                                 <div class="small-img-product">
-                                    <img class="img-fluid img-cover mb-2"
-                                        src="{{ asset('assets/images/RD2430_AQUA_F1_W_360x.png') }}">
-                                    <img class="img-fluid img-cover mb-2"
-                                        src="{{ asset('assets/images/RD2403SVND_01_360x.png') }}">
-                                    <img class="img-fluid img-cover mb-2"
-                                        src="{{ asset('assets/images/RD2430_AQUA_F1_W_360x.png') }}">
-                                    <img class="img-fluid img-cover mb-2"
-                                        src="{{ asset('assets/images/RD2403SVND_01_360x.png') }}">
-                                    <img class="img-fluid img-cover mb-2"
-                                        src="{{ asset('assets/images/RD1738_AUBERGINE_F1_W_360x.png') }}">
+
+                                    <img class="img-fluid img-cover mb-2" src="{{ $product->product_main_image }}">
+
+                                    @foreach ($product->images as $image)
+                                        <img class="img-fluid img-cover mb-2" src="{{ $image->image }}">
+                                    @endforeach
+
                                 </div>
                             </div>
                             <div class="col-md-10 sm-col">
                                 <div class="big-img-product">
-                                    <img class="img-fluid img-cover"
-                                        src="{{ asset('assets/images/RD1738_AUBERGINE_F1_W_360x.png') }}">
+                                    <img class="img-fluid img-cover" src="{{ $product->product_main_image }}">
                                 </div>
                             </div>
                         </div>
@@ -63,34 +65,40 @@
 
                 <div class="col-md-6">
                     <div class="description-product">
-                        <h1 class="h3 mb-0 text-gray">Reina in Montella</h1>
+                        <h1 class="h3 mb-0 text-gray">{{ $store->store_name }}</h1>
                         <div class="d-flex justify-content-between w-75">
-                            <h3 class="h5">Reina in Montella RD2403</h3>
-                            <h3 class="h5">Reina in Montella</h3>
+                            <h3 class="h5">{{ $store->store_name }} {{ $store->id }}</h3>
+                            <h3 class="h5">{{ $product->product_name }}</h3>
                         </div>
                         <div class="star mt-2 mr-2 d-inline-block">
-                            <i class="fas fa-star gold"></i>
-                            <i class="fas fa-star gold"></i>
-                            <i class="fas fa-star gold"></i>
-                            <i class="fas fa-star gray"></i>
-                            <i class="fas fa-star gray"></i>
+                            @foreach (range(1, 5) as $rate)
+                                @if ($product->rates->pluck('rate_value')->avg() >= $rate)
+                                    <i class="fas fa-star gold"></i>
+                                @else
+                                    <i class="fas fa-star gray"></i>
+                                @endif
+                            @endforeach
                         </div>
                         <div class="available-store mt-3 mb-1">
-                            <h3>$199</h3>
-                            <span class='text-green'>Available</span> <span> In Store</span>
+                            <h3>${{ $product->product_price }}</h3>
+                            @if ($product->in_stock)
+                                <span class='text-green'>Available</span> <span> In Store</span>
+                            @else
+                                <span class='text-danger'>Unavailable</span> <span> In Store</span>
+                            @endif
                         </div>
                         <p class='text-muted'>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                            the industry's standard dummy text ever since.
+                            {{ $product->product_description }}
                         </p>
                         <div class="color-available mt-4">
                             <h6>Colors Available</h6>
                             <ul class="list-unstyled">
-                                <li class="d-inline-block mr-2"><a href="#" style="background: #E83758;"></a></li>
-                                <li class="d-inline-block mr-2"><a href="#" style="background: #E143B3;"></a></li>
-                                <li class="d-inline-block mr-2"><a href="#" style="background: #B643E1;"></a></li>
-                                <li class="d-inline-block mr-2"><a href="#" style="background: #8243E1;"></a></li>
-                                <li class="d-inline-block mr-2"><a href="#" style="background: #434EE1;"></a></li>
+                                @foreach ($product->colors as $color)
+                                    <li class="d-inline-block mr-2">
+                                        <a class="color" color="{{ $color->color_code }}"
+                                            style="background: {{ $color->color_code }}; cursor: pointer; "></a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="data-btn  mt-3">
@@ -118,7 +126,14 @@
                         <h4 class='h5'> Fabric options </h4>
                         <div class="one-slide">
                             <div class="owl-carousel">
+
                                 <div class="item">
+                                    <div class="img my-3">
+                                        <img src="{{ $custom->fabric_image }}" class='img-fluid' alt="">
+                                    </div>
+                                </div>
+
+                                {{-- <div class="item">
                                     <div class="img my-3">
                                         <img src="{{ asset('assets/images/img-Fabricoptions.png') }}" class='img-fluid'
                                             alt="">
@@ -135,13 +150,7 @@
                                         <img src="{{ asset('assets/images/img-Fabricoptions.png') }}" class='img-fluid'
                                             alt="">
                                     </div>
-                                </div>
-                                <div class="item">
-                                    <div class="img my-3">
-                                        <img src="{{ asset('assets/images/img-Fabricoptions.png') }}" class='img-fluid'
-                                            alt="">
-                                    </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -152,28 +161,10 @@
                             <div class="owl-carousel">
                                 <div class="item">
                                     <div class="img my-3">
-                                        <img src="{{ asset('assets/images/Embroideryoptions.png') }}" class='img-fluid'
-                                            alt="">
+                                        <img src="{{ $custom->embroidery_image }}" class='img-fluid' alt="">
                                     </div>
                                 </div>
-                                <div class="item">
-                                    <div class="img my-3">
-                                        <img src="{{ asset('assets/images/Embroideryoptions.png') }}" class='img-fluid'
-                                            alt="">
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="img my-3">
-                                        <img src="{{ asset('assets/images/Embroideryoptions.png') }}" class='img-fluid'
-                                            alt="">
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="img my-3">
-                                        <img src="{{ asset('assets/images/Embroideryoptions.png') }}" class='img-fluid'
-                                            alt="">
-                                    </div>
-                                </div>
+
                             </div>
                             <!-- <div class="navSlider"></div> -->
                         </div>
@@ -183,30 +174,13 @@
                         <h4 class='h5'> Accessory Options </h4>
                         <div class="one-slide">
                             <div class="owl-carousel">
+
                                 <div class="item">
                                     <div class="img my-3">
-                                        <img src="{{ asset('assets/images/AccessoryOptions.png') }}" class='img-fluid'
-                                            alt="">
+                                        <img src="{{ $custom->accessories_image }}" class='img-fluid' alt="">
                                     </div>
                                 </div>
-                                <div class="item">
-                                    <div class="img my-3">
-                                        <img src="{{ asset('assets/images/AccessoryOptions.png') }}" class='img-fluid'
-                                            alt="">
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="img my-3">
-                                        <img src="{{ asset('assets/images/AccessoryOptions.png') }}" class='img-fluid'
-                                            alt="">
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="img my-3">
-                                        <img src="{{ asset('assets/images/AccessoryOptions.png') }}" class='img-fluid'
-                                            alt="">
-                                    </div>
-                                </div>
+
                             </div>
                             <!-- <div class="navSlider"></div> -->
                         </div>
@@ -252,12 +226,15 @@
                             <h4 class="h5 mt-4">Special order policy</h4>
                             <p>Lorem ipsum dolor sit amet consecteturLorem ipsum dolor sit amet consecteturLorem ipsum dolor
                                 sit amet consectetur adipisicing elit. Eaque, maiores!</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, maiores! t amet
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, maiores! t amet
                                 consecteturLorem ipsum dolor sit amet consect amet consecteturLorem ipsum dolor sit amet
-                                consec</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, maiores! t amet
-                                consecteturLorem ipsum dolor sit amet consec</p>
-
+                                consec
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, maiores! t amet
+                                consecteturLorem ipsum dolor sit amet consec
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -272,12 +249,7 @@
             </ul>
 
             <div class="tab-content" id="pills-tabContent">
-                <p>Lorem ipsum dolor sit amet consecteturLorem ipsum dolor sit amet consecteturLorem ipsum dolor sit amet
-                    consectetur adipisicing elit. Eaque, maiores!</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, maiores! t amet consecteturLorem ipsum
-                    dolor sit amet consect amet consecteturLorem ipsum dolor sit amet consec</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, maiores! t amet consecteturLorem ipsum
-                    dolor sit amet consec</p>
+                <p>{{ $custom->other_size_notes }}</p>
             </div>
         </div>
 
@@ -345,5 +317,6 @@
                     designer's page </a>
             </div>
         </section>
+
     </div>
 @endsection

@@ -9,6 +9,7 @@ use App\Models\ProductImage;
 use App\Models\ProductCategory;
 use App\Models\ProductColor;
 use App\Models\ProductCustomMade;
+use App\Models\Store;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -197,6 +198,7 @@ class ProductController extends Controller
             ->with('sub_category', $sub_category)
             ->with('product_color', $product_color);
     }
+
     public function add_Category(Request $request)
     {
         $this->validate($request, [
@@ -216,9 +218,12 @@ class ProductController extends Controller
         $result['message'] = trans('product.add_category');
         return $result;
     }
+
     public function edit_product(Request $request, $id)
     {
         $product = Product::findOrFail($id);
+
+
         if ($product) {
 
             if ($product->product_type == 'custom_made') {
@@ -249,6 +254,7 @@ class ProductController extends Controller
                 $category = ProductCategory::where('is_delete', 0)->where('parent_id', $this->parent_id)->get();
                 $sub_category = ProductCategory::where('is_delete', 0)->where('parent_id', '!=', $this->parent_id)->get();
 
+
                 $custom = ProductCustomMade::where('product_id', $product->id)->first();
                 return view('Store.Product.edit_custom_product')
                     ->with('product', $product)
@@ -257,6 +263,7 @@ class ProductController extends Controller
                     ->with('sub_category', $sub_category)
                     ->with('custom', $custom);
             }
+
             if ($product->product_type == 'ready_made') {
                 $color = DB::table('colors_of_product')
                     ->where('product_id', $product->id)
@@ -289,6 +296,7 @@ class ProductController extends Controller
                     ->with('category', $category)
                     ->with('sub_category', $sub_category);
             }
+
             if ($product->product_type == 'service') {
                 // $color = DB::table('colors_of_product')
                 //     ->where('product_id', $product->id)
@@ -331,7 +339,6 @@ class ProductController extends Controller
         $data = $request->all();
         $request['id'] = $id;
 
-
         $this->validate(
             $request,
             [
@@ -368,6 +375,8 @@ class ProductController extends Controller
 
             ]
         );
+
+
         if ($data['product_type'] == 'custom_made') {
 
             $this->validate($request, [
@@ -386,6 +395,8 @@ class ProductController extends Controller
                 // 'wholesale_price' => 'required|regex:/^(\d+(,\d{1,2})?)?$/',
             ]);
         }
+
+
         if ($data['product_type'] == 'ready_made') {
             $this->validate($request, [
                 'size' => 'required|array',
@@ -416,8 +427,11 @@ class ProductController extends Controller
             'product_3d_image' => $data['product_3d_image'] ?? '0',
             'product_size' => $data['size'] ?? array(),
         ]);
+
+
         $product_color = $request->product_colors;
         $product = Product::find($id);
+
         if ($product_color) {
             // $product->colors->attach($product_color);
             // foreach ($product_color as $colors) {
@@ -432,7 +446,7 @@ class ProductController extends Controller
             // }
             // return $product->colors()->get();
         }
-        // }
+
 
         $product_images = $request->product_images;
         $product = Product::find($id);
@@ -450,6 +464,7 @@ class ProductController extends Controller
                 ]);
             }
         }
+
 
 
         if ($data['product_type'] == 'custom_made') {
@@ -479,6 +494,7 @@ class ProductController extends Controller
                 'other_size_notes' => $data['other_size_notes'],
             ]);
         }
+
         if (!$product) {
             $result['status'] = false;
             $result['message'] = trans('product.add_faild');
@@ -486,12 +502,19 @@ class ProductController extends Controller
             $result['status'] = true;
             $result['message'] = trans('product.add_successfully');
         }
+
+
         return $result;
     }
+
     public function store_product(Request $request)
     {
+
         $data = $request->all();
         // return    $product_color = $request->product_colors;
+        dd($data);
+        $store = Store::find(auth()->user()->store->id);
+
 
         $this->validate(
             $request,
@@ -528,6 +551,7 @@ class ProductController extends Controller
 
             ]
         );
+
         if ($data['product_type'] == 'custom_made') {
 
             $this->validate($request, [
@@ -547,6 +571,7 @@ class ProductController extends Controller
                 // 'wholesale_price' => 'required|regex:/^(\d+(,\d{1,2})?)?$/',
             ]);
         }
+
         if ($data['product_type'] == 'ready_made') {
             $this->validate($request, [
                 'size' => 'required|array',
@@ -558,6 +583,8 @@ class ProductController extends Controller
 
 
         $product = Product::create([
+            'store_type_id' => $store->store_type_id,
+            'store_id' => $store->id,
             'product_name_en' => $data['product_name_en'],
             'product_name_ar' => $data['product_name_ar'],
             'product_serial_number' => $data['product_serial_number'],
@@ -577,16 +604,12 @@ class ProductController extends Controller
             'product_3d_image' => $data['product_3d_image'] ?? '0',
             'product_size' => $data['size'] ?? array(),
         ]);
-        $product_color = $request->product_colors;
-        if ($product_color) {
-            //     foreach ($product_color as $colors) {
-            //         $color = ProductColor::find($colors->id);
-            //         if ($color) {
 
+        $product_color = $request->product_colors;
+
+        if ($product_color) {
             $product->colors()->attach($product_color);
         }
-        //     }
-        // }
 
         $product_images = $request->product_images;
         $product_main_image = $request->description_image;
@@ -601,6 +624,7 @@ class ProductController extends Controller
         }
 
         $product_images = $request->product_images;
+
         if ($product_images) {
             foreach ($product_images as $image) {
                 $productImage = ProductImage::create([
@@ -612,33 +636,44 @@ class ProductController extends Controller
             }
         }
 
-
         if ($data['product_type'] == 'custom_made') {
             try {
                 $custom_made_product = ProductCustomMade::create([
                     'product_id' => $product->id,
+
                     'custom_made_description' => $data['custom_made_description'] ?? "",
                     'custom_made_description_en' => $data['custom_made_description_en'] ?? "",
                     'description_image' => $data['description_image'] ?? '0',
+
+                    #
                     'fabric_options' => $data['fabric_options'],
-                    'fabric_image' => $data['fabric_image'],
-                    'other_size_instructions_en' => $data['other_size_instructions_en'],
-                    'other_size_notes_en' => $data['other_size_notes_en'],
-                    'custom_made_other_size_en' => $data['custom_made_other_size_en'],
-                    'embroidery_options' => $data['embroidery_options'],
-                    'embroidery_image' => $data['embroidery_image'],
-                    'accessories_options' => $data['accessories_options'],
                     'fabric_options_en' => $data['fabric_options_en'],
+                    #
                     'embroidery_options_en' => $data['embroidery_options_en'],
+                    'embroidery_options' => $data['embroidery_options'],
+                    #
+                    'accessories_options' => $data['accessories_options'],
                     'accessories_options_en' => $data['accessories_options_en'],
-                    'implementation_period_en' => $data['implementation_period_en'] ?? "test",
+
+
+                    'fabric_image' => $data['fabric_image'],
+                    'embroidery_image' => $data['embroidery_image'],
                     'accessories_image' => $data['accessories_image'],
+
+
+                    'other_size_instructions_en' => $data['other_size_instructions_en'],
+                    'custom_made_other_size_en' => $data['custom_made_other_size_en'],
+
+                    'implementation_period_en' => $data['implementation_period_en'] ?? "test",
                     'implementation_period' => $data['implementation_period'],
+
                     'custom_made_size_id' => $data['custom_made_size_id'],
                     'custom_made_other_size' => $data['custom_made_other_size'],
                     'other_size_instructions' => $data['other_size_instructions'],
                     'custom_made_other_size_image' => $data['custom_made_other_size_image'],
+
                     'other_size_notes' => $data['other_size_notes'],
+                    'other_size_notes_en' => $data['other_size_notes_en'],
                 ]);
             } catch (\Throwable $e) {
                 $product->delete();
@@ -648,6 +683,7 @@ class ProductController extends Controller
                 return $result;
             }
         }
+
         if (!$product) {
             $result['status'] = false;
             $result['message'] = trans('product.add_faild');
@@ -658,6 +694,7 @@ class ProductController extends Controller
 
         return $result;
     }
+
     public function add_product_color(Request $request)
     {
         $data = $request->all();
@@ -696,6 +733,7 @@ class ProductController extends Controller
         }
         echo json_encode($result);
     }
+
     public function delete_product(Request $request)
     {
         $this->validate($request, [
@@ -711,6 +749,7 @@ class ProductController extends Controller
         }
         echo json_encode($result);
     }
+
     public function active_deactive_product(Request $request)
     {
         $this->validate($request, [

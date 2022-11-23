@@ -67,6 +67,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
     protected static function booted()
     {
         static::creating(function (User $item) {
@@ -119,7 +120,6 @@ class User extends Authenticatable
     {
         return $this->roles->first()->permissions()->get();
     }
-
 
     public function can($permission, $args = array())
     {

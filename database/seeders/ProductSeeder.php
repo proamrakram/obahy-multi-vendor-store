@@ -45,7 +45,7 @@ class ProductSeeder extends Seeder
 
             $times = 0;
 
-            while ($times <= 100) {
+            while ($times <= 3) {
 
                 $x = $x + 1;
 

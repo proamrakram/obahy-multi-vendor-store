@@ -41,11 +41,9 @@ class StoreType extends Model
 
     public function setImageAttribute($image)
     {
-        if(gettype($image) != 'string') {
+        if(gettype($image) != 'NULL') {
             $i = $image->store('images/stores-types', 'public');
             $this->attributes['image'] = $image->hashName();
-        } else {
-            $this->attributes['image'] = $image;
         }
     }
 

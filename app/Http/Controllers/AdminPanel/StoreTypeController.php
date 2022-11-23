@@ -163,6 +163,7 @@ class StoreTypeController extends Controller
         } else {
             $filter_section = 'inactive';
         }
+
         $store_type->update([
             'store_type_ar' => $request->store_type_ar,
             'store_type_en' => $request->store_type_en,

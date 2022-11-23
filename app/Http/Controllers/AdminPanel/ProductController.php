@@ -25,9 +25,9 @@ class ProductController extends Controller
         $this->middleware('auth');
     }
     public function index()
-    { 
+    {
         $stores = Store::where('is_delete',0)->where('store_status','active')->orderBy('created_at', 'desc')->get();
-    
+
         $category = ProductCategory::where('is_delete', 0)->where('parent_id', 0)->orderBy('created_at', 'desc')->get();
         return view('AdminPanel.Product.index')->with('stores', $stores)->with('category', $category);
     }
@@ -173,7 +173,7 @@ class ProductController extends Controller
         $product_color = ProductColor::where('is_delete', 0)->orderBy('created_at', 'desc')->get();
         // echo json_encode($product_color);die;
         $stores = Store::where('is_delete',0)->where('store_status','active')->orderBy('created_at', 'desc')->get();
-    
+
         return view('AdminPanel.Product.product_service_made')->with('category', $category)
             ->with('size_option', $size_option)
             ->with('sub_category', $sub_category)
@@ -183,7 +183,7 @@ class ProductController extends Controller
     public function add_custom_made()
     {
         $stores = Store::where('is_delete',0)->where('store_status','active')->orderBy('created_at', 'desc')->get();
-    
+
         $category = ProductCategory::where('is_delete', 0)->where('parent_id', 0)->orderBy('created_at', 'desc')->get();
         $sub_category = ProductCategory::where('is_delete', 0)->where('parent_id', '!=', 0)->orderBy('created_at', 'desc')->get();
 
@@ -200,7 +200,7 @@ class ProductController extends Controller
     public function add_ready_made()
     {
         $stores = Store::where('is_delete',0)->where('store_status','active')->orderBy('created_at', 'desc')->get();
-    
+
         $category = ProductCategory::where('is_delete', 0)->where('parent_id', 0)->orderBy('created_at', 'desc')->get();
         $sub_category = ProductCategory::where('is_delete', 0)->where('parent_id', '!=', 0)->orderBy('created_at', 'desc')->get();
         $size_option = ProdcutCustomMadeSizeOptions::where('is_delete', 0)->orderBy('created_at', 'desc')->get();
@@ -233,9 +233,11 @@ class ProductController extends Controller
     }
     public function edit_product(Request $request, $id)
     {
+
         $stores = Store::where('is_delete',0)->where('store_status','active')->orderBy('created_at', 'desc')->get();
-    
+
         $product = Product::findOrFail($id);
+
         if ($product) {
 
             if ($product->product_type == 'custom_made') {
@@ -511,10 +513,13 @@ class ProductController extends Controller
         }
         return $result;
     }
+
     public function store_product(Request $request)
     {
         $data = $request->all();
+
         // return    $product_color = $request->product_colors;
+
 
         $this->validate(
             $request,
@@ -552,6 +557,7 @@ class ProductController extends Controller
 
             ]
         );
+
         if ($data['product_type'] == 'custom_made') {
 
             $this->validate($request, [
@@ -571,6 +577,7 @@ class ProductController extends Controller
                 // 'wholesale_price' => 'required|regex:/^(\d+(,\d{1,2})?)?$/',
             ]);
         }
+
         if ($data['product_type'] == 'ready_made') {
             $this->validate($request, [
                 'size' => 'required|array',
@@ -582,6 +589,7 @@ class ProductController extends Controller
 
         $product = Product::create([
             'store_id' => $data['store_id'],
+            // 'store_type_id' =>
             'product_name_en' => $data['product_name_en'],
             'product_name_ar' => $data['product_name_ar'],
             'product_serial_number' => $data['product_serial_number'],
@@ -601,7 +609,9 @@ class ProductController extends Controller
             'product_3d_image' => $data['product_3d_image'] ?? '0',
             'product_size' => $data['size'] ?? array(),
         ]);
+
         $product_color = $request->product_colors;
+
         if ($product_color) {
             //     foreach ($product_color as $colors) {
             //         $color = ProductColor::find($colors->id);
@@ -609,10 +619,9 @@ class ProductController extends Controller
 
             $product->colors()->attach($product_color);
         }
-        //     }
-        // }
 
         $product_images = $request->product_images;
+
         if ($product_images) {
             foreach ($product_images as $image) {
                 $productImage = ProductImage::create([
@@ -660,6 +669,7 @@ class ProductController extends Controller
                 return $result;
             }
         }
+
         if (!$product) {
             $result['status'] = false;
             $result['message'] = trans('product.add_faild');

@@ -34,7 +34,7 @@ class HomeController extends Controller
       $stores[]=Store::where('is_delete',0)->whereMonth('created_at',\Carbon\Carbon::now()->startOfMonth()->subMonth($i)->format('m'))->count();
     }
     $packages = StorePackage::where('package_status','active')->where('is_delete',0)->get();
-    
+
     $sales_count = OrderProduct::where('is_delete',0)->where('status','delivered')->count();
     $orders_count = Order::where('is_delete',0)->count();
     $stores_count = Store::where('store_status','active')->where('is_delete',0)->count();
@@ -54,6 +54,6 @@ class HomeController extends Controller
 
   }
 
- 
-  
+
+
 }

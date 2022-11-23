@@ -70,13 +70,10 @@
                                             <label for="product_category" class="col-3 col-form-label"> تصنيف المنتج <span
                                                     class='text-danger'> * </span> </label>
                                             <div class="col-9">
-                                                <select name="product_sub_category" id="" class='form-control form-select'>
+                                                <select name="product_category" id="" class='form-control form-select'>
                                                     @if (isset($category))
                                                         @foreach ($category as $item)
-                                                            <option @if ($product->product_category == $item->id)
-                                                                selected
-
-                                                            @endif value="{{ $item->id }}">
+                                                            <option @if ($product->product_category == $item->id) selected @endif value="{{ $item->id }}">
                                                                 {{ $item->category_name_ar }} </option>
                                                         @endforeach
                                                     @endif
@@ -94,9 +91,8 @@
                                                     class='form-control form-select'>
                                                     @if (isset($sub_category))
                                                         @foreach ($sub_category as $item)
-                                                            <option @if ($product->product_category == $item->id)
-                                                                selected
-
+                                                            <option
+                                                                @if ($product->product_category == $item->id) selected
                                                             @endif value="{{ $item->id }}">
                                                                 {{ $item->category_name_ar }} </option>
                                                         @endforeach

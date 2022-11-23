@@ -23,12 +23,12 @@ class DatabaseSeeder extends Seeder
             PaymentTypeSeeder::class,
             StorePackageSeeder::class,
             StoreSeeder::class,
-            ProductCategorySeeder::class,
-            ProductColorSeeder::class,
-            ProductSeeder::class,
-            ProductCommentSeeder::class,
-            ProductRateSeeder::class,
-            ProductImageSeeder::class,
+            // ProductCategorySeeder::class,
+            // ProductColorSeeder::class,
+            // ProductSeeder::class,
+            // ProductCommentSeeder::class,
+            // ProductRateSeeder::class,
+            // ProductImageSeeder::class,
             WebsiteSettingsSeeder::class
         ]);
     }
