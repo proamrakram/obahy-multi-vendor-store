@@ -151,7 +151,7 @@
                         <div class="col-md-6 mb-3">
                                 <div class="row">
                                     <label for="City" class="col-2 col-form-label">
-                                        نوع الاشتراك
+                                    @lang('adminPanel.subscription-type')
                                         <span class="text-danger"> * </span>
 
                                     </label>
@@ -175,7 +175,7 @@
                             <div class="col-md-6 mb-3">
                                 <div class="row">
                                     <label for="City" class="col-2 col-form-label">
-                                        عملة المتجر
+                                    @lang('adminPanel.store-currency')
                                         <span class="text-danger"> * </span>
 
                                     </label>
@@ -199,14 +199,14 @@
                             <div class="col-md-6 mb-3">
                                 <div class="row">
                                     <label for="store_description_ar" class="col-2 col-form-label">
-                                        وصف المتجر بالعربية
+                                    @lang('adminPanel.store-description-ar')
                                         <span class="text-danger"> * </span>
 
                                     </label>
                                     <div class="col-10">
                                         <textarea type="text" name="store_description_ar"
                                             class="form-control   @error('store_description_ar') is-invalid @enderror" id=""
-                                            placeholder="الوصف بالعربية">{{ old('store_description_ar') }}</textarea>
+                                            placeholder="@lang('adminPanel.store-description-ar')">{{ old('store_description_ar') }}</textarea>
                                         @error('store_description_ar')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -220,14 +220,14 @@
                                 <div class="row">
 
                                     <label for="store_description_en" class="col-2 col-form-label">
-                                        وصف المتجر بالانجليزية
+                                    @lang('adminPanel.store-description-en')
                                         <span class="text-danger"> * </span>
 
                                     </label>
                                     <div class="col-10">
                                         <textarea type="text" name="store_description_en"
                                             class="form-control   @error('store_description_en') is-invalid @enderror" id=""
-                                            placeholder="الوصف   بالانجليزية">{{ old('store_description_en') }}</textarea>
+                                            placeholder="@lang('adminPanel.store-description-en')">{{ old('store_description_en') }}</textarea>
                                         @error('store_description_en')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -241,12 +241,12 @@
                             <div class="col-md-6 mb-3">
                                 <div class="row">
                                     <label for="address_ar" class="col-2 col-form-label">
-                                        العنوان بالعربية <span class="text-danger"> * </span>
+                                    @lang('adminPanel.title-ar') <span class="text-danger"> * </span>
                                     </label>
                                     <div class="col-10">
                                         <input type="text" value="{{ old('address_ar') }}" name="address_ar"
                                             class="form-control   @error('address_ar') is-invalid @enderror "
-                                            id="Phone" placeholder="العنوان بالعربية">
+                                            id="Phone" placeholder="@lang('adminPanel.title-ar')">
                                         @error('address_ar')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -259,12 +259,12 @@
                             <div class="col-md-6 mb-3">
                                 <div class="row">
                                     <label for="address_en" class="col-2 col-form-label">
-                                        العنوان بالانجليزية <span class="text-danger"> * </span>
+                                    @lang('adminPanel.title-en') <span class="text-danger"> * </span>
                                     </label>
                                     <div class="col-10">
                                         <input type="text" value="{{ old('address_en') }}" name="address_en"
                                             class="form-control   @error('address_en') is-invalid @enderror "
-                                            id="Phone" placeholder="العنوان بالانجليزية">
+                                            id="Phone" placeholder="@lang('adminPanel.title-en')">
                                         @error('address_en')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -277,13 +277,13 @@
                             <div class="col-md-6 mb-3">
                                 <div class="row">
                                     <label for="Date" class="col-2 col-form-label">
-                                        رقم التسجيل الموثق <span class="text-danger"> * </span>
+                                    @lang('adminPanel.registration-number-in-trusted')<span class="text-danger"> * </span>
                                     </label>
                                     <div class="col-10">
                                         <input type="text" value="{{ old('registration_number_in_trusted') }}"
                                             name="registration_number_in_trusted"
                                             class="form-control   @error('registration_number_in_trusted') is-invalid @enderror"
-                                            id="registration_number_in_trusted" placeholder="اكتب رقم التسجيل الموثق">
+                                            id="registration_number_in_trusted" placeholder="@lang('adminPanel.registration-number-in-trusted')">
                                         @error('registration_number_in_trusted')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -296,13 +296,13 @@
                             <div class="col-md-6 mb-3">
                                 <div class="row">
                                     <label for="Date" class="col-2 col-form-label">
-                                        رابط السجل التجاري<span class="text-danger"> * </span>
+                                    @lang('adminPanel.commercial-record-link')<span class="text-danger"> * </span>
                                     </label>
                                     <div class="col-10">
                                         <input type="text" value="{{ old('commercial_record') }}"
                                             name="commercial_record"
                                             class="form-control   @error('commercial_record') is-invalid @enderror"
-                                            id="commercial_record" placeholder="أدخل رابط السجل التجاري">
+                                            id="commercial_record" placeholder="@lang('adminPanel.commercial-record-link')">
                                         @error('commercial_record')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -315,12 +315,12 @@
                             <div class="col-md-6 mb-3">
                                 <div class="row">
                                     <label for="Date" class="col-2 col-form-label">
-                                        رقم الهوية <span class="text-danger"> * </span>
+                                    @lang('adminPanel.id-number') <span class="text-danger"> * </span>
                                     </label>
                                     <div class="col-10">
                                         <input type="text" value="{{ old('id_number') }}" name="id_number"
                                             class="form-control   @error('id_number') is-invalid @enderror"
-                                            id="id_number" placeholder="ادخل رقم الهوية">
+                                            id="id_number" placeholder=" @lang('adminPanel.id-number')">
                                         @error('id_number')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>

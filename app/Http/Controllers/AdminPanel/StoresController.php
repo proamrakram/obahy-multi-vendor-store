@@ -197,7 +197,6 @@ class StoresController extends Controller
     }else{
       $store_status = 'inactive';
     }
-
     $store->update([
       'store_name_ar' => $request->store_name_ar,
       'payment_type_id' => $request->payment_type_id,
@@ -210,7 +209,7 @@ class StoresController extends Controller
       'store_country' => $request->store_country,
       'store_city' => $request->store_city,
       'subscription_start_date' => $request->subscription_start_date,
-      'subscription_end_date' => date('Y-m-d',strtotime('+1 month',strtotime($request->subscription_start_date))),
+      'subscription_end_date' =>  date('Y-m-d',strtotime('+30 days',strtotime($request->subscription_start_date))),
       'subscription_package_id' => $request->subscription_package_id,
       'store_status' => $store_status,
 
@@ -232,7 +231,7 @@ class StoresController extends Controller
         if (!is_null($active_store_subscription) && $active_store_subscription->package_id == $request->subscription_package_id) {
             $active_store_subscription->update([
                 'subscription_start_date' => $request->subscription_start_date,
-                'subscription_end_date' => $request->subscription_end_date,
+                'subscription_end_date' =>  date('Y-m-d',strtotime('+30 days',strtotime($request->subscription_start_date))),
             ]);
         } else {
           if (!is_null($active_store_subscription)){

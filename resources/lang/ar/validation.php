@@ -201,5 +201,16 @@ return [
         'permissions'                  => 'الصلاحيات',
         'postCode'                  => 'الرمز البريدي',
 
+
+
+        
+        'store_city'                  => 'المدينة',
+        'subscription_start_date'                  => 'تاريح بداية الاشتراك',
+        'store_domain'                  => 'دومين المتجر',
+        'store_country'                  => 'الدولة',
+        'id_number'                  => 'رقم الهوية',
+        'registration_number_in_trusted'                  => 'رقم التسجيل الموثق',
+        'payment_type_id'                  => 'طريقة الدفع',
+
     ],
 ];

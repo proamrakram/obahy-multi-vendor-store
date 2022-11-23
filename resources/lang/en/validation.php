@@ -158,6 +158,78 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+
+        'name'                  => 'name',
+        'username'              => 'username',
+        'email'                 => 'email',
+        'first_name'            => 'first name',
+        'last_name'             => 'last name',
+        'password'              => 'password',
+        'password_confirmation' => 'password confirmation',
+        'city'                  => 'city',
+        'country'               => 'country',
+        'address'               => 'address',
+        'phone'                 => 'phone',
+        'mobile'                => 'mobile',
+        'age'                   => 'age',
+        'sex'                   => 'sex',
+        'gender'                => 'gender',
+        'day'                   => 'day',
+        'month'                 => 'month',
+        'year'                  => 'year',
+        'hour'                  => 'hour',
+        'minute'                => 'minute',
+        'second'                => 'second',
+        'title'                 => 'title',
+        'content'               => 'content',
+        'description'           => 'description',
+        'excerpt'               => 'excerpt',
+        'date'                  => 'date',
+        'time'                  => 'time',
+        'available'             => 'available',
+        'size'                  => 'size',
+
+
+        ///////// admin //////
+        'type'                  => 'type',
+        'parent_id'                  => 'parent',
+        'category_name_en'                  => 'category name (EN)',
+        'category_name_ar'                  => 'category name (AR)',
+        'currency_name_en'                  => 'currency name (EN)',
+        'currency_name_ar'                  => 'currency name (AR)',
+        'currency_symbol'                  => 'currency symbol',
+        'currency_code'                  => 'currency code',
+        'phone_number'                  => 'phonenumber',
+        'role'                  => 'role',
+        'store_name_en'                  => 'store name (EN)',
+        'store_name_ar'                  => 'store name (AR)',
+        'store_details_en'                  => 'store details (EN)',
+        'store_details_ar'                  => 'store details (AR)',
+        'store_address_en'                  => 'store address (EN)',
+        'store_address_ar'                  => 'store address (AR)',
+        'store_logo'                  => 'logo',
+        'role_name'                  => 'role name',
+        'package_name_en'                  => 'package name (EN)',
+        'package_name_ar'                  => 'package name (AR)',
+        'package_description_en'                  => 'package description (EN)',
+        'package_description_ar'                  => 'package description (AR)',
+        'package_price'                  => 'package price',
+        'package_currency'                  => 'package currency',
+        'permissions'                  => 'permissions',
+        'postCode'                  => 'postCode',
+
+
+
+        
+        'store_city'                  => 'store city',
+        'subscription_start_date'                  => 'subscription start date',
+        'store_domain'                  => 'store domain',
+        'store_country'                  => 'store country',
+        'id_number'                  => 'id number',
+        'registration_number_in_trusted'                  => 'registration number in trusted',
+        'payment_type_id'                  => 'payment type id',
+
+    ],
 
 ];
