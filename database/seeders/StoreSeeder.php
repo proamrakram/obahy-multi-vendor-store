@@ -128,7 +128,7 @@ class StoreSeeder extends Seeder
                     'store_country' => $random_country_id,
                     'store_city' => $random_city_id,
                     'subscription_start_date' => now(),
-                    'subscription_end_date' => now()->addDays(10),
+                    'subscription_end_date' => now()->addDays(30),
                     // 'subscription_package_id',
                     'registration_number_in_trusted' => random_int(111111111, 999999999),
                     'commercial_record' => random_int(111111111, 999999999),
@@ -143,7 +143,7 @@ class StoreSeeder extends Seeder
                 'store_id' => $store_id,
                 'package_id' => random_int(1, 3),
                 'subscription_start_date' => now(),
-                'subscription_end_date' => now(),
+                'subscription_end_date' => now()->addDays(30),
                 'subscription_status' => 'active',
                 'is_delete' => 0
             ]);
