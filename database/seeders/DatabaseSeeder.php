@@ -37,6 +37,7 @@ class DatabaseSeeder extends Seeder
             
             RoleHasPermissionSeeder::class,
             ModelHasRoleSeeder::class,
+            SettingsSeeder::class,
         ]);
     }
 }
