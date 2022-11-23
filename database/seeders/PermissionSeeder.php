@@ -15,7 +15,6 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-<<<<<<< HEAD
         DB::table('permissions')->insert([
             'name' => 'بيانات المشتركين - المتاجر',
             'guard_name' => 'web',
@@ -476,7 +475,6 @@ class PermissionSeeder extends Seeder
         //         'role_id' => $role_id
         //     ]);
         // }
-=======
         DB::table('permissions')->insert(
             [
                 'name' => 'stores',
@@ -2025,6 +2023,5 @@ class PermissionSeeder extends Seeder
                 'type' => 'admin',
             ]
         );
->>>>>>> 30c0e7d00b81cbdf1d9237ef50ce33cc79c31dfa
     }
 }

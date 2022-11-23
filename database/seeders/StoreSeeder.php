@@ -74,7 +74,6 @@ class StoreSeeder extends Seeder
         }
 
 
-<<<<<<< HEAD
         // $stores_types = StoreType::all();
         // $count = 2;
         // $store_id = 1;
@@ -148,7 +147,6 @@ class StoreSeeder extends Seeder
         //         'subscription_status' => 'active',
         //         'is_delete' => 0
         //     ]);
-=======
         $stores_types = StoreType::all();
         $count = 2;
         $store_id = 1;
@@ -222,32 +220,32 @@ class StoreSeeder extends Seeder
                 'subscription_status' => 'active',
                 'is_delete' => 0
             ]);
->>>>>>> 30c0e7d00b81cbdf1d9237ef50ce33cc79c31dfa
 
-        //     $count = $count + 1;
-        //     $store_id = $store_id + 1;
-        // }
+            //     $count = $count + 1;
+            //     $store_id = $store_id + 1;
+            // }
 
-        // $stores = Store::all();
+            // $stores = Store::all();
 
-        // foreach ($stores as $store) {
-        //     $store_subscription = StoreSubscription::where('store_id', $store->id)->first();
-        //     if ($store && $store_subscription) {
-        //         $store->update([
-        //             'subscription_package_id' => $store_subscription->id
-        //         ]);
-        //     }
-        // }
+            // foreach ($stores as $store) {
+            //     $store_subscription = StoreSubscription::where('store_id', $store->id)->first();
+            //     if ($store && $store_subscription) {
+            //         $store->update([
+            //             'subscription_package_id' => $store_subscription->id
+            //         ]);
+            //     }
+            // }
 
-        // $subscriptions = StoreSubscription::all();
+            // $subscriptions = StoreSubscription::all();
 
-        // $count = 1;
-        // foreach ($subscriptions as $subscription) {
-        //     $subscription->update([
-        //         'store_id' => $count
-        //     ]);
+            // $count = 1;
+            // foreach ($subscriptions as $subscription) {
+            //     $subscription->update([
+            //         'store_id' => $count
+            //     ]);
 
-        //     $count = $count + 1;
-        // }
+            //     $count = $count + 1;
+            // }
+        }
     }
 }
