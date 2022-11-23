@@ -19,7 +19,7 @@ class ProductRateSeeder extends Seeder
 
         $users = User::where('user_type', 'customer')->get();
 
-        $products = Product::all();
+        $products = Product::take(5)->get();
 
         foreach ($products as $product) {
 
