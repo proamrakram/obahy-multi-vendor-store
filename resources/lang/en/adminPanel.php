@@ -417,5 +417,12 @@ return [
     'inner-banner-end-profile-page'=>'Inner Banner End Profile Page',
 
     
+    'store-description-ar'=>'Store Description (AR)',
+    'store-description-en'=>'Store Description (EN)',
+    'commercial-record-link'=>'Commercial Record Link',
+    'registration-number-in-trusted'=>'Registration Number in Trusted',
+    'subscription-type'=>'Subscription Type',
+    'store-currency'=>'Store Currency',
+    'id-number'=>'ID Number',
     
 ];

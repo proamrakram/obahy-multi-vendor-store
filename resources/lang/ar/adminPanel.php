@@ -416,4 +416,18 @@ return [
     'inner-banner-end-continue-payment-page'=>'بنر داخلي نهاية صفحة اكمال',
     'inner-banner-start-profile-page'=>'بنر داخلي بداية صفحة البروفايل',
     'inner-banner-end-profile-page'=>'بنر داخلي نهاية صفحة البروفايل',
+
+
+
+
+    
+    'store-description-ar'=>'وصف المتجر بالعربية',
+    'store-description-en'=>'وصف المتجر بالانجليزية',
+    'commercial-record-link'=>'رابط السجل التجاري',
+    'registration-number-in-trusted'=>'رقم التسجيل الموثق',
+    'subscription-type'=>'نوع الاشتراك',
+    'store-currency'=>'عملة المتجر',
+    'id-number'=>'رقم الهوية',
+
+    
 ];

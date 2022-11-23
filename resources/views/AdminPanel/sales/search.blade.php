@@ -8,7 +8,7 @@
                                         <span class="text-muted"> {{$store->getName()}} </span>
                                     </td>
                                     <td class="text-center p-2">
-                                        <span class="text-muted"> {{$store->package->getName()}} </span>
+                                        <span class="text-muted"> @if(!is_null($store->package)){{$store->package->getName()}} @else -- @endif </span>
                                     </td>
                                     <td class="text-center p-2">
                                         <span class="text-muted"> {{$store->country->getName()}} </span>
