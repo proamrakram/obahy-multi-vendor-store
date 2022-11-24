@@ -113,7 +113,7 @@ class CustomerController extends Controller
         $silver_store_package = StorePackage::language()->where('package_type', 'silver')->first();
         $free_store_package = StorePackage::language()->where('package_type', 'free')->first();
 
-        return view('Website.Customer.loanding-home', [
+        return view('Website.customer.loanding-home', [
             'gold_store_package' => $gold_store_package,
             'silver_store_package' => $silver_store_package,
             'free_store_package' => $free_store_package,
@@ -125,7 +125,7 @@ class CustomerController extends Controller
         $email = $request->email;
         $stores_types = StoreType::where('is_delete', 0)->get();
 
-        return view('Website.Customer.create-store', compact([
+        return view('Website.customer.create-store', compact([
             'email',
             'package_id',
             'stores_types'
