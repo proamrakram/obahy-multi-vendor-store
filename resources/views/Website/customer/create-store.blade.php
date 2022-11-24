@@ -319,7 +319,7 @@
                     },
 
                     success: function(data) {
-                        window.location = "{{ url('store/home') }}";
+                        window.location = "{{ url('login') }}";
                     },
 
                     error: function(reject) {

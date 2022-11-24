@@ -27,7 +27,7 @@ class StoreDetails extends Component
     public $store_name;
 
     public $search = '';
-    public $product_type = 'model';
+    public $product_type = 'ready_made';
     public $time = 'desc';
 
     public function mount($store_type_slug, $store_name_slug)
@@ -61,13 +61,13 @@ class StoreDetails extends Component
 
         $store_admin = User::where('id', $store->store_admin)->first();
 
-
         $products = Product::language()->where('is_delete', '0')
             ->nameFilter($filters)
             ->where('product_status', 'active')
             ->where('product_type', $this->product_type)
             ->orderBy('id', $this->time)
-            ->where('store_id', $store->id)->paginate(12);
+            ->where('store_id', $store->id)
+            ->paginate(12);
 
         $products_services = Product::language()->where('is_delete', '0')
             ->where('product_status', 'active')

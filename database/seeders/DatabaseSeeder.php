@@ -18,17 +18,21 @@ class DatabaseSeeder extends Seeder
             CitySeeder::class,
             CurrencySeeder::class,
             UserSeeder::class,
-            // PermissionSeeder::class,
+
+            #Permissions
+            PermissionSeeder::class,
+            RoleSeeder::class,
+            RoleHasPermissionSeeder::class,
+            ModelHasRoleSeeder::class,
+            SettingsSeeder::class,
+
+            #Packages and Stores
             PackageItemSeeder::class,
             PaymentTypeSeeder::class,
             StorePackageSeeder::class,
             StoreSeeder::class,
-            // ProductCategorySeeder::class,
-            // ProductColorSeeder::class,
-            // ProductSeeder::class,
-            // ProductCommentSeeder::class,
-            // ProductRateSeeder::class,
-            // ProductImageSeeder::class,
+
+            #Website Settings
             WebsiteSettingsSeeder::class,
             ProductCategorySeeder::class,
             ProductColorSeeder::class,
@@ -36,15 +40,8 @@ class DatabaseSeeder extends Seeder
             ProductCommentSeeder::class,
             ProductRateSeeder::class,
             ProductImageSeeder::class,
-
             WebsiteSettingsSeeder::class,
 
-            PermissionSeeder::class,
-            RoleSeeder::class,
-
-            RoleHasPermissionSeeder::class,
-            ModelHasRoleSeeder::class,
-            SettingsSeeder::class,
         ]);
     }
 }

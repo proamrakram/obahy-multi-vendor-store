@@ -172,6 +172,7 @@ class ProductController extends Controller
             ->with('sub_category', $sub_category)
             ->with('product_color', $product_color);
     }
+
     public function add_custom_made()
     {
         $category = ProductCategory::where('is_delete', 0)->where('parent_id', $this->parent_id)->orderBy('created_at', 'desc')->get();
@@ -449,20 +450,36 @@ class ProductController extends Controller
 
 
         $product_images = $request->product_images;
+        $product_main_image = $request->description_image;
+
         $product = Product::find($id);
 
+
+
         if ($product_images) {
+
             foreach (ProductImage::where('product_id', $product->id)->get() as $images) {
                 $images->delete();
             }
+
             foreach ($product_images as $image) {
                 $productImage = ProductImage::create([
                     'product_id' => $product->id,
-                    // 'is_main' => 0,
+                    'is_main' => 0,
                     'image' => $image,
                     'status' => 'active',
                 ]);
             }
+        }
+
+
+        if ($product_main_image) {
+            $productImage = ProductImage::create([
+                'product_id' => $product->id,
+                'is_main' => 1,
+                'image' => $product_main_image,
+                'status' => 'active',
+            ]);
         }
 
 
@@ -511,10 +528,8 @@ class ProductController extends Controller
     {
 
         $data = $request->all();
-        // return    $product_color = $request->product_colors;
-        dd($data);
-        $store = Store::find(auth()->user()->store->id);
 
+        $store = Store::find(auth()->user()->store->id);
 
         $this->validate(
             $request,
@@ -581,7 +596,6 @@ class ProductController extends Controller
             ]);
         }
 
-
         $product = Product::create([
             'store_type_id' => $store->store_type_id,
             'store_id' => $store->id,
@@ -617,7 +631,7 @@ class ProductController extends Controller
         if ($product_main_image) {
             $productImage = ProductImage::create([
                 'product_id' => $product->id,
-                // 'is_main' => 1,
+                'is_main' => 1,
                 'image' => $product_main_image,
                 'status' => 'active',
             ]);
@@ -629,7 +643,7 @@ class ProductController extends Controller
             foreach ($product_images as $image) {
                 $productImage = ProductImage::create([
                     'product_id' => $product->id,
-                    // 'is_main' => 0,
+                    'is_main' => 0,
                     'image' => $image,
                     'status' => 'active',
                 ]);

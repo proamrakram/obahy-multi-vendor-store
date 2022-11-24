@@ -77,10 +77,8 @@ class CustomerController extends Controller
         $related_products = Product::language()
             ->where('id', $product->id)
             ->first()
-            ->relatedProducts()
-            ->get()
-            ->whereIn('product_type', ['ready_made', 'custom_made', 'service', 'template'])
-            ->where('store_id', $store->id);
+            ->relatedProducts($product->product_type, $store->id)
+            ->get();
 
 
         if ($product->product_type == 'custom_made') {
@@ -166,6 +164,8 @@ class CustomerController extends Controller
                 'user_type' => 'store_admin',
                 'password' => Hash::make($request->password),
             ]);
+
+            $user->assignRole('store_admin');
         }
 
         $store_type = StoreType::where('id', $request->entity_type)->first();

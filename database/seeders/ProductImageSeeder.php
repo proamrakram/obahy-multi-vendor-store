@@ -21,6 +21,15 @@ class ProductImageSeeder extends Seeder
         foreach ($products as $product) {
 
             $x = 0;
+            $image = 'pdm_' . random_int(1, 2) . '.png';
+            ProductImage::create([
+                'product_id' =>  $product->id,
+                'is_main' => 1,
+                'image' =>  $image,
+                'status' =>  'active',
+                'is_delete' => 0
+            ]);
+
             while ($x < 5) {
 
                 if ($product->product_type == 'model') {
@@ -39,7 +48,7 @@ class ProductImageSeeder extends Seeder
 
                 ProductImage::create([
                     'product_id' =>  $product->id,
-                    // 'is_main' => 0,
+                    'is_main' => 0,
                     'image' =>  $image,
                     'status' =>  'active',
                     'is_delete' => 0

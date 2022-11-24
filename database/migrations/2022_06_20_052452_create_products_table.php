@@ -28,7 +28,6 @@ class CreateProductsTable extends Migration
             $table->float('product_price_after_vat');
             $table->float('wholesale_price');
 
-
             $table->integer('store_type_id');
             $table->string('product_main_image', 500)->nullable();
             $table->integer('is_affiliate')->default(0);

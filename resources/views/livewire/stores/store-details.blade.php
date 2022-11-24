@@ -82,7 +82,7 @@
         {{-- Service Section --}}
         @if ($service_section == 'active')
             @if ($products_services->count() > 0)
-                <section class="shoping-cats pt-4 pb-3 slider-style-1"  wire:ignore>
+                <section class="shoping-cats pt-4 pb-3 slider-style-1" wire:ignore>
                     <div class="container">
 
                         <div class="heading-section mb-4 pb-2">
@@ -179,10 +179,11 @@
                         <div class="product-style-1 text-center mb-4" wire:ignore.self>
                             <div class="product-image" wire:ignore.self>
 
-                                <a
-                                    href="{{ route('customer.store-product-details', [$store_type_slug, $store_name_slug, $product->id]) }}">
+                                <a href="{{ route('customer.store-product-details', [$store_type_slug, $store_name_slug, $product->id]) }}"
+                                    wire:ignore.self>
                                     <img class="img-fluid" src="{{ $product->product_main_image }}">
                                 </a>
+
 
                                 <div class="product-option" wire:ignore.self>
                                     <span class="discount" wire:ignore.self>-30%</span>

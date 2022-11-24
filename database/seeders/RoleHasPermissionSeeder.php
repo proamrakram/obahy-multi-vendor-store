@@ -16,23 +16,23 @@ class RoleHasPermissionSeeder extends Seeder
      */
     public function run()
     {
-        $admin_permissions = Permission::where('type','admin')->get();
-        $store_permissions = Permission::where('type','store')->get();
-        foreach($admin_permissions as $p){
-        DB::table('role_has_permissions')->insert(
-            [
-                'permission_id' => $p->id,
-                'role_id' => 1,
-            ]
-        );
-    }
-    foreach($store_permissions as $p){
-        DB::table('role_has_permissions')->insert(
-            [
-                'permission_id' => $p->id,
-                'role_id' => 1,
-            ]
-        );
-    }
+        $admin_permissions = Permission::where('type', 'admin')->get();
+        $store_permissions = Permission::where('type', 'store')->get();
+        foreach ($admin_permissions as $p) {
+            DB::table('role_has_permissions')->insert(
+                [
+                    'permission_id' => $p->id,
+                    'role_id' => 1,
+                ]
+            );
+        }
+        foreach ($store_permissions as $p) {
+            DB::table('role_has_permissions')->insert(
+                [
+                    'permission_id' => $p->id,
+                    'role_id' => 2,
+                ]
+            );
+        }
     }
 }

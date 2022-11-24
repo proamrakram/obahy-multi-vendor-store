@@ -25,7 +25,7 @@ class RolesController extends Controller
     return view('Store.roles.index')->with('roles', $roles);
   }
 
-  
+
   public function create()
   {
     $permissions = Permission::where('type','store')->get();
@@ -69,13 +69,13 @@ class RolesController extends Controller
 
   public function update(Request $request, $id)
   {
-    
+
     $role = Role::find($id);
     if (is_null($role)|| $role->name == 'store_admin' ||  $role->type != 'store') {
       session()->flash('error', 'الصلاحية غير موجودة');
       return redirect()->back();
     }
-      
+
     $this->validate(
       $request,
       [
@@ -99,7 +99,7 @@ class RolesController extends Controller
   public function destroy($id)
   {
 
-      
+
     $role = Role::find($id);
     if (is_null($role) || $role->name == 'store_admin' || $role->type != 'store') {
       session()->flash('error', 'الصلاحية غير موجودة');
@@ -111,7 +111,7 @@ class RolesController extends Controller
       session()->flash('error', 'الصلاحية ممنوحة للموظف');
       return redirect()->back();
     }
-      
+
     $role->revokePermissionTo($role->permissions);
     $role->delete();
     session()->flash('success', 'تم حذف الصلاحية بنجاح');

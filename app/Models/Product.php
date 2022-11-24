@@ -11,13 +11,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use Cviebrock\EloquentSluggable\Sluggable;
+// use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Support\Facades\App;
 
 class Product extends Model
 {
     use HasFactory;
-    use Sluggable;
+    // use Sluggable;
     protected $fillable = [
         'product_name_en',
         'product_name_ar',
@@ -46,12 +46,12 @@ class Product extends Model
     ];
     protected $casts = ['product_size' => 'array'];
 
-    //    protected static function booted()
-    //    {
-    //        static::creating(function(Product $item) {
-    //            $item->slug = $item->product_name_en ."_".Str::uuid();
-    //        });
-    //    }
+    protected static function booted()
+    {
+        static::creating(function (Product $item) {
+            $item->slug = $item->product_name_en . "_" . Str::uuid();
+        });
+    }
 
     /**
      * The colors that belong to the Product
@@ -116,7 +116,12 @@ class Product extends Model
 
     public function getProductMainImageAttribute($image)
     {
-        return asset('storage/images/products') . '/' . $image;
+        $product_main_image = $this->images->where('is_main', '1')->first();
+        if ($product_main_image) {
+            return $product_main_image->image;
+        }
+
+        return null;
     }
 
     public function getName()
@@ -195,9 +200,9 @@ class Product extends Model
         return $this->hasMany(Product::class, 'product_category', 'product_category')->active();
     }
 
-    public function getRelatedModelProductsAttribute()
+    public function getRelatedModelProductsAttribute($type, $store_id)
     {
-        $products = $this->relatedProducts->where('product_type', 'model');
+        $products = $this->relatedProducts->where('product_type', $type)->where('store_id', $store_id);
         if ($products->count() > 4) {
             return $products->random(4);
         } else {
@@ -374,12 +379,12 @@ class Product extends Model
     }
 
 
-    public function sluggable(): array
-    {
-        return [
-            'slug' => [
-                'source' => 'product_name_en'
-            ]
-        ];
-    }
+    // public function sluggable(): array
+    // {
+    //     return [
+    //         'slug' => [
+    //             'source' => 'product_name_en'
+    //         ]
+    //     ];
+    // }
 }

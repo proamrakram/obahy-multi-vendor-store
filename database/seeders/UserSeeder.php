@@ -36,81 +36,80 @@ class UserSeeder extends Seeder
             ]
         );
 
-        // DB::table('users')->insert(
-        //     [
-        //         'name' => 'proamrakram',
-        //         'slug' => Str::slug('pro-amr-akram'),
-        //         'email' => 'proamrakram@gmail.com',
-        //         'country_id' => 1,
-        //         'city_id' => 14,
-        //         'address_1' => 'Palstine',
-        //         'address_2' => 'Gaza',
-        //         'phone_number' => '+972599916672',
-        //         'image' => 'user_1.png',
-        //         // 'social_login_provider' => ,
-        //         'user_type' => 'store_admin',
-        //         'gender' => 'male',
-        //         // 'social_login_provider_code' => ,
-        //         'email_verified_at' => now(),
-        //         'password' => Hash::make('123456789'),
-        //     ]
-        // );
+        DB::table('users')->insert(
+            [
+                'name' => 'store',
+                'slug' => Str::slug('store'),
+                'email' => 'store@gmail.com',
+                'country_id' => 1,
+                'city_id' => 14,
+                'address_1' => 'Palstine',
+                'address_2' => 'Gaza',
+                'phone_number' => '+9725999' . random_int(11111, 99999),
+                'image' => 'user_1.png',
+                // 'social_login_provider' => ,
+                'user_type' => 'store_admin',
+                'gender' => 'male',
+                // 'social_login_provider_code' => ,
+                'email_verified_at' => now(),
+                'password' => Hash::make('123456789'),
+            ]
+        );
+
+        $x = 3;
+
+        while ($x <= 5) {
+
+            $random_country_id = random_int(1, 6);
+
+            if ($random_country_id == 1) {
+                $random_city_id = random_int(1, 15);
+            }
+
+            if ($random_country_id == 2) {
+                $random_city_id = random_int(16, 19);
+            }
+
+            if ($random_country_id == 3) {
+                $random_city_id = random_int(20, 23);
+            }
+
+            if ($random_country_id == 4) {
+                $random_city_id = random_int(24, 27);
+            }
+
+            if ($random_country_id == 5) {
+                $random_city_id = random_int(28, 31);
+            }
+
+            if ($random_country_id == 6) {
+                $random_city_id = random_int(32, 35);
+            }
 
 
-        $x = 2;
+            DB::table('users')->insert(
+                [
+                    'name' => 'Store_User_' . $x,
+                    'slug' => Str::slug('Store_User_' . $x),
+                    'email' => 'store' . $x . '@gmail.com',
+                    'country_id' => $random_country_id,
+                    'city_id' => $random_city_id,
+                    'address_1' => 'Palstine',
+                    'address_2' => 'Gaza',
+                    'phone_number' => '+9725999' . random_int(11111, 99999),
+                    'image' => 'user_1.png',
+                    // 'social_login_provider' => ,
+                    'user_type' => 'store_admin',
+                    'gender' => 'male',
+                    // 'social_login_provider_code' => ,
+                    'email_verified_at' => now(),
+                    'password' => Hash::make('123456789'),
+                ]
 
-        // while ($x <= 50) {
+            );
 
-        //     $random_country_id = random_int(1, 6);
-
-        //     if ($random_country_id == 1) {
-        //         $random_city_id = random_int(1, 15);
-        //     }
-
-        //     if ($random_country_id == 2) {
-        //         $random_city_id = random_int(16, 19);
-        //     }
-
-        //     if ($random_country_id == 3) {
-        //         $random_city_id = random_int(20, 23);
-        //     }
-
-        //     if ($random_country_id == 4) {
-        //         $random_city_id = random_int(24, 27);
-        //     }
-
-        //     if ($random_country_id == 5) {
-        //         $random_city_id = random_int(28, 31);
-        //     }
-
-        //     if ($random_country_id == 6) {
-        //         $random_city_id = random_int(32, 35);
-        //     }
-
-
-        //     DB::table('users')->insert(
-        //         [
-        //             'name' => 'Store_User_' . $x,
-        //             'slug' => Str::slug('Store_User_' . $x),
-        //             'email' => 'store' . $x . '@gmail.com',
-        //             'country_id' => $random_country_id,
-        //             'city_id' => $random_city_id,
-        //             'address_1' => 'Palstine',
-        //             'address_2' => 'Gaza',
-        //             'phone_number' => '+9725999' . random_int(11111, 99999),
-        //             'image' => 'user_1.png',
-        //             // 'social_login_provider' => ,
-        //             'user_type' => 'store_admin',
-        //             'gender' => 'male',
-        //             // 'social_login_provider_code' => ,
-        //             'email_verified_at' => now(),
-        //             'password' => Hash::make('123456789'),
-        //         ]
-
-        //     );
-
-        //     $x = $x + 1;
-        // }
+            $x = $x + 1;
+        }
 
         // while ($x <= 60) {
 

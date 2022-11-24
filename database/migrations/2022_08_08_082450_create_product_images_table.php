@@ -16,7 +16,7 @@ class CreateProductImagesTable extends Migration
         Schema::create('product_images', function (Blueprint $table) {
             $table->id();
             $table->integer('product_id');
-            //$table->integer('is_main');
+            $table->integer('is_main');
             $table->string('image');
             $table->enum('status', ['active', 'inactive', 'blocked']);
             $table->integer('is_delete')->default(0);

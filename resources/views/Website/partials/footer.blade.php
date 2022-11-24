@@ -122,7 +122,7 @@
                 url: "{{ route('login') }}",
                 method: 'POST',
                 data: {
-                    _token: '{{ csrf_token() }}',
+                    _token: $('meta[name="csrf-token"]').attr('content'),
                     email: $('#email_login').val(),
                     password: $('#password_login').val(),
                     lang: "{{ app()->getLocale() }}"
@@ -174,7 +174,7 @@
                     phone: $('#phone_register').val(),
                     password: $('#password_register').val(),
                     "password_confirmation": $('#password_confirmation_register').val(),
-                    _token: '{{ csrf_token() }}',
+                    _token: $('meta[name="csrf-token"]').attr('content'),
                     lang: "{{ app()->getLocale() }}"
                 },
                 headers: {

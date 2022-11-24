@@ -296,68 +296,79 @@
                 <div class="row">
 
 
-                    @foreach ($related_products->random($related_products->count() > 4 ? 4 : $related_products->count()) as $related_product)
-                        <div class="col-md-3 col-6">
-                            <div class="product-style-1 text-center mb-3">
-                                <div class="product-image">
-                                    <a
-                                        href="{{ route('customer.store-product-details', [$store_type_slug, $store_name_slug, $related_product->id]) }}">
-                                        <img class="img-fluid" src="{{ $related_product->product_main_image }}"> </a>
+                    @if ($product->product_type == 'ready_made')
+                        @foreach ($related_products as $related_product)
+                            <div class="col-md-3 col-6">
+                                <div class="product-style-1 text-center mb-3">
+                                    <div class="product-image">
+                                        <a
+                                            href="{{ route('customer.store-product-details', [$store_type_slug, $store_name_slug, $related_product->id]) }}">
+                                            <img class="img-fluid" src="{{ $related_product->product_main_image }}"> </a>
 
 
-                                    <div class="product-option">
-                                        <span class="discount">-30%</span>
-                                        <span class="add-to-wishlist">
-                                            <a style="cursor: pointer;">
-                                                @if (auth()->user())
-                                                    @if (auth()->user()->user_type == 'customer')
-                                                        @if (favorite($related_product['id']))
-                                                            <i class="fas fa-heart fa-lg rfavorite" id="rlike"
-                                                                style="color: red;"
-                                                                product={{ $related_product['id'] }}></i>
-                                                        @else
-                                                            <i class="far fa-heart fa-lg rfavorite" id="rlike"
-                                                                style="color: black;"
-                                                                product={{ $related_product['id'] }}></i>
+                                        <div class="product-option">
+                                            <span class="discount">-30%</span>
+                                            <span class="add-to-wishlist">
+                                                <a style="cursor: pointer;">
+                                                    @if (auth()->user())
+                                                        @if (auth()->user()->user_type == 'customer')
+                                                            @if (favorite($related_product['id']))
+                                                                <i class="fas fa-heart fa-lg rfavorite" id="rlike"
+                                                                    style="color: red;"
+                                                                    product={{ $related_product['id'] }}></i>
+                                                            @else
+                                                                <i class="far fa-heart fa-lg rfavorite" id="rlike"
+                                                                    style="color: black;"
+                                                                    product={{ $related_product['id'] }}></i>
+                                                            @endif
                                                         @endif
                                                     @endif
-                                                @endif
-                                            </a>
-                                        </span>
+                                                </a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="product-content border pb-2">
+                                        <h3 class="mb-1 mt-3 text-center h4"> <a
+                                                href="{{ route('customer.store-product-details', [$store_type_slug, $store_name_slug, $related_product->id]) }}"
+                                                class="text-dark text-decoration-none">{{ $related_product->product_name }}</a>
+                                        </h3>
+                                        <h4 class=" h6  text-center text-gray font-weight-bold">
+                                            ${{ $related_product->product_price }}
+                                        </h4>
                                     </div>
                                 </div>
-                                <div class="product-content border pb-2">
-                                    <h3 class="mb-1 mt-3 text-center h4"> <a
-                                            href="{{ route('customer.store-product-details', [$store_type_slug, $store_name_slug, $related_product->id]) }}"
-                                            class="text-dark text-decoration-none">{{ $related_product->product_name }}</a>
-                                    </h3>
-                                    <h4 class=" h6  text-center text-gray font-weight-bold">
-                                        ${{ $related_product->product_price }}
-                                    </h4>
-                                </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    @endif
 
-                    {{-- <div class="col-md-4 col-6">
-                        <div class="product-style-1 text-center mb-4">
-                            <div class="product-image">
-                                <a href="#"> <img class="img-fluid"
-                                        src="{{ asset('assets/images/RD1738_AUBERGINE_F1_W_360x.png') }}"> </a>
-                                <div class="product-option">
-                                    <span class="add-to-wishlist"> <a href="#"> <i
-                                                class="far fa-heart fa-lg"></i>
-                                        </a> </span>
+
+                    @if ($product->product_type == 'service')
+                        @foreach ($related_products as $related_product)
+                            <div class="col-md-3 col-6">
+                                <div class="product-style-1 text-center">
+
+                                    <div class="product-image border rounded">
+                                        <a
+                                            href="{{ route('customer.store-product-details', [$store_type_slug, $store_name_slug, $related_product->id]) }}">
+                                            <img class="img-fluid" src="{{ $related_product->product_main_image }}">
+                                        </a>
+                                    </div>
+
+
+                                    <div class="product-content">
+                                        <h3 class="text-center mb-1 h4 font-weight-normal mt-3">
+                                            <a href="{{ route('customer.store-product-details', [$store_type_slug, $store_name_slug, $related_product->id]) }}"
+                                                class="text-dark text-decoration-none">
+                                                {{ $related_product->product_name }}
+                                            </a>
+                                        </h3>
+                                        <a href="#" class="btn btn-primary btn-sm-3 mt-1">Service Request</a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="product-content">
-                                <h3 class="mb-1 text-center h4 mt-2"> <a href="#"
-                                        class="text-dark text-decoration-none"> RD2403 Reina in Montella </a> </h3>
-                                <h4 class=" h6  text-center text-gray font-weight-bold"> RINA DI MONTELLA </h4>
-                                <h4 class=" h6  text-center text-gray font-weight-bold">$10.00</h4>
-                            </div>
-                        </div>
-                    </div> --}}
+                        @endforeach
+                    @endif
+
 
                 </div>
             </div>
