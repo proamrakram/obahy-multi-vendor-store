@@ -74,12 +74,7 @@ class CustomerController extends Controller
             ->where('user_type', 'store_admin')
             ->first();
 
-        $related_products = Product::language()
-            ->where('id', $product->id)
-            ->first()
-            ->relatedProducts($product->product_type, $store->id)
-            ->get();
-
+        $related_products = $product->related_model_products;
 
         if ($product->product_type == 'custom_made') {
             return view('Website.products.custom-product-details', [

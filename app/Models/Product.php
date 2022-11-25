@@ -200,9 +200,9 @@ class Product extends Model
         return $this->hasMany(Product::class, 'product_category', 'product_category')->active();
     }
 
-    public function getRelatedModelProductsAttribute($type, $store_id)
+    public function getRelatedModelProductsAttribute()
     {
-        $products = $this->relatedProducts->where('product_type', $type)->where('store_id', $store_id);
+        $products = $this->relatedProducts->where('product_type', $this->product_type)->where('store_id', $this->store_id);
         if ($products->count() > 4) {
             return $products->random(4);
         } else {
